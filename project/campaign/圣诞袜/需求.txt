@@ -8,6 +8,7 @@
 * GetDrawCustomers($customers_id)
 * GetWinnerList()
 * GetChancesLeft()
+  * Play Once Again不算次数
 * CheckEventTime()
 * CheckLogin()
 * CheckDrawPrizeTotal()	检查数量限制
