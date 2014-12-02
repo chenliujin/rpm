@@ -1,0 +1,40 @@
+1.每人每天3次
+2.只能中一次实物奖品
+3.定时定量发放实物奖品
+4.总中奖次数不能超过5次
+
+
+* GetDrawPrize()
+* GetDrawCustomers($customers_id)
+* GetWinnerList()
+* GetChancesLeft()
+* CheckEventTime()
+* CheckLogin()
+* CheckDrawPrizeTotal()	检查数量限制
+* CheckDrawPrizeRate()	检查中奖概率，排除非奖品(1.thanks, not win 2.play once again)
+* SendEmail()
+* Execute()
+  * CheckEventTime()
+  * CheckLogin()
+  * 获取奖品
+    * 忽略虚拟奖品
+    * 检查实物奖品中奖次数（每人只能中一次）
+    * CheckDrawPrizeTotal()
+    * CheckDrawPrizeRate()
+  * 中奖奖品
+  * 发送中奖邮件
+  * 日志
+
+
+Redis
+
+{$event}_draw_customers_count
+{$event}_draw_customers
+{$event}_draw_customers_win
+{$event}_draw_customers_{$customers_id}
+{$event}_draw_prize
+{$event}_draw_prize_win_{$prize_id}
+
+
+xcache
+solr
