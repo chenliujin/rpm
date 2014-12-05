@@ -1,0 +1,5 @@
+guest_enable=YES
+guest_username=vsftpd
+
+anon_world_readable_only=no
+local_root=/home/vsftpd/td_product_info_download
