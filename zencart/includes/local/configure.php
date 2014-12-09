@@ -9,6 +9,6 @@ define('DIR_WS_TEMPLATE', 'includes/templates/cigabuy/');
  * queryFactory::write_log()
  * DIR_FS_SQL_CACHE . '/sql_log_' . date("Ymd") . '.log'
  */
-define('SQL_DEBUG', TRUE);
+define('SQL_DEBUG', 'true');
 define('DIR_FS_SQL_CACHE', '/ssd/www/zencart/weblogs/');
 
