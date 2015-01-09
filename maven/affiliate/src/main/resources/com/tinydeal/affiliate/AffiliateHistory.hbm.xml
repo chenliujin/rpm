@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-9 10:59:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.tinydeal.affiliate.AffiliateHistory" table="affiliate_history" catalog="zencart" optimistic-lock="version">
+        <id name="ahId" type="java.lang.Long">
+            <column name="ah_id" />
+            <generator class="identity" />
+        </id>
+        <property name="address" type="string">
+            <column name="address" not-null="true" />
+        </property>
+        <property name="ip" type="string">
+            <column name="ip" length="20" not-null="true" />
+        </property>
+        <property name="timeAt" type="timestamp">
+            <column name="time_at" length="19" not-null="true" />
+        </property>
+        <property name="ifRegister" type="short">
+            <column name="if_register" not-null="true">
+                <comment>0&#177;&#237;&#202;&#190;&#195;&#187;&#211;&#208;&#163;&#172;1&#177;&#237;&#202;&#190;&#215;&#162;&#178;&#225;</comment>
+            </column>
+        </property>
+        <property name="ifBought" type="short">
+            <column name="if_bought" not-null="true">
+                <comment>0&#177;&#237;&#202;&#190;&#195;&#187;&#211;&#208;&#163;&#172;1&#177;&#237;&#202;&#190;&#211;&#208;&#194;&#242;</comment>
+            </column>
+        </property>
+        <property name="affiliateCode" type="string">
+            <column name="affiliate_code" length="20" not-null="true" />
+        </property>
+        <property name="ordersId" type="int">
+            <column name="orders_id" not-null="true" />
+        </property>
+        <property name="customersId" type="int">
+            <column name="customers_id" not-null="true">
+                <comment>&#177;&#187;&#205;&#198;&#188;&#246;&#181;&#196;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="aflCustomersId" type="int">
+            <column name="afl_customers_id" not-null="true">
+                <comment>
+                &#205;&#198;&#188;&#246;&#200;&#203;(&#185;&#186;&#194;&#242;&#201;&#204;&#198;&#183;&#187;&#241;&#181;&#195;&#187;&#253;&#183;&#214;&#181;&#196;&#200;&#203;)</comment>
+            </column>
+        </property>
+        <property name="randomNumber" type="string">
+            <column name="random_number" length="100" not-null="true" />
+        </property>
+        <property name="processStatus" type="java.lang.Integer">
+            <column name="process_status" />
+        </property>
+        <property name="processDate" type="timestamp">
+            <column name="process_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

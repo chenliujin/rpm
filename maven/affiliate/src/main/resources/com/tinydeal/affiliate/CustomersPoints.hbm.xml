@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-9 10:59:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.tinydeal.affiliate.CustomersPoints" table="customers_points" catalog="zencart" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="linkId" type="java.lang.Integer">
+            <column name="link_id">
+                <comment>&#185;&#186;&#206;&#239;&#179;&#181;&#182;&#169;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type">
+                <comment>18:bought point,19:affiliate point,20:activity point,55:extended_affiliate</comment>
+            </column>
+        </property>
+        <property name="points" type="big_decimal">
+            <column name="points" precision="13" scale="3" />
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="createtime" length="19" />
+        </property>
+        <property name="customersId" type="java.lang.Integer">
+            <column name="customers_id" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="200">
+                <comment>
+                &#178;&#217;&#215;&#247;&#203;&#181;&#195;&#247;&#163;&#172;&#200;&#231;&#163;&#186;&#211;&#195;&#187;&#167;&#198;&#192;&#194;&#219;&#193;&#203;&#163;&#198;&#163;&#193;&#163;&#209;&#161;&#176;asdf&#161;&#177;</comment>
+            </column>
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" />
+        </property>
+        <property name="generalPoint" type="java.lang.Integer">
+            <column name="general_point" />
+        </property>
+        <property name="pointStatus" type="java.lang.Short">
+            <column name="point_status">
+                <comment>0:60&#204;&#236;&#202;&#185;&#211;&#195;, 1:&#188;&#180;&#202;&#177;&#202;&#185;&#211;&#195;,
+                2:&#178;&#187;&#191;&#201;&#202;&#185;&#211;&#195;,</comment>
+            </column>
+        </property>
+        <property name="currentPoints" type="float">
+            <column name="current_points" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="canUsePoints" type="float">
+            <column name="can_use_points" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="relativeTableName" type="string">
+            <column name="relative_table_name" length="256" />
+        </property>
+        <property name="lastModified" type="timestamp">
+            <column name="last_modified" length="19" />
+        </property>
+        <property name="omsUpdateTime" type="timestamp">
+            <column name="oms_update_time" length="19">
+                <comment>
+                &#185;&#169;oms&#183;&#254;&#206;&#241;&#184;&#249;&#190;&#221;&#202;&#199;&#183;&#241;&#210;&#209;&#184;&#182;&#191;&#238;&#192;&#180;&#184;&#252;&#208;&#194;&#187;&#253;&#183;&#214;&#215;&#180;&#204;&#172;&#161;&#163;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

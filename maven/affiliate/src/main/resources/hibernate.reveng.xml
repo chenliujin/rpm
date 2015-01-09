@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="zencart"/>
+  <table-filter match-name="orders_products"/>
+  <table-filter match-name="affiliate_history"/>
+  <table-filter match-name="customers_points"/>
+  <table-filter match-name="affiliate"/>
+  <table-filter match-name="orders"/>
+  <table-filter match-name="orders_total"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-9 10:59:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.tinydeal.affiliate.OrdersProducts" table="orders_products" catalog="zencart" optimistic-lock="version">
+        <id name="ordersProductsId" type="java.lang.Integer">
+            <column name="orders_products_id" />
+            <generator class="identity" />
+        </id>
+        <property name="ordersId" type="int">
+            <column name="orders_id" not-null="true" />
+        </property>
+        <property name="productsId" type="int">
+            <column name="products_id" not-null="true" />
+        </property>
+        <property name="productsModel" type="string">
+            <column name="products_model" length="32" />
+        </property>
+        <property name="productsName" type="string">
+            <column name="products_name" length="256" not-null="true" />
+        </property>
+        <property name="productsPrice" type="big_decimal">
+            <column name="products_price" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="finalPrice" type="big_decimal">
+            <column name="final_price" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="productsTax" type="big_decimal">
+            <column name="products_tax" precision="7" scale="4" not-null="true" />
+        </property>
+        <property name="productsQuantity" type="float">
+            <column name="products_quantity" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="onetimeCharges" type="big_decimal">
+            <column name="onetime_charges" precision="15" scale="4" not-null="true">
+                <comment>&#210;&#187;&#180;&#206;&#208;&#212;&#183;&#209;&#211;&#195;</comment>
+            </column>
+        </property>
+        <property name="productsPricedByAttribute" type="boolean">
+            <column name="products_priced_by_attribute" not-null="true">
+                <comment>&#202;&#199;&#183;&#241;&#184;&#249;&#190;&#221;&#202;&#244;&#208;&#212;&#184;&#196;&#177;&#228;&#188;&#219;&#184;&#241;</comment>
+            </column>
+        </property>
+        <property name="productIsFree" type="boolean">
+            <column name="product_is_free" not-null="true" />
+        </property>
+        <property name="productsDiscountTypeFrom" type="boolean">
+            <column name="products_discount_type_from" not-null="true" />
+        </property>
+        <property name="discountPrice" type="big_decimal">
+            <column name="discount_price" precision="15" scale="4" />
+        </property>
+        <property name="productsDiscountType" type="java.lang.Byte">
+            <column name="products_discount_type" />
+        </property>
+        <property name="productsPrid" type="string">
+            <column name="products_prid" length="128" not-null="true" />
+        </property>
+        <property name="storeModuleId" type="int">
+            <column name="store_module_id" not-null="true" />
+        </property>
+        <property name="productsAttrValue" type="string">
+            <column name="products_attr_value" length="128">
+                <comment>[attr]:value;[attr1]:value2</comment>
+            </column>
+        </property>
+        <property name="shippingStatus" type="java.lang.Short">
+            <column name="shipping_status">
+                <comment>&#184;&#195;&#178;&#250;&#198;&#183;&#202;&#199;&#183;&#241;&#210;&#209;&#183;&#162;&#187;&#245;</comment>
+            </column>
+        </property>
+        <property name="stockDecreased" type="java.lang.Short">
+            <column name="stock_decreased">
+                <comment>
+                &#178;&#250;&#198;&#183;&#191;&#219;&#188;&#245;&#191;&#226;&#180;&#230;&#215;&#180;&#204;&#172;,1:&#210;&#209;&#190;&#173;&#191;&#219;&#188;&#245;&#191;&#226;&#180;&#230;&#161;&#163;</comment>
+            </column>
+        </property>
+        <property name="lastModified" type="timestamp">
+            <column name="last_modified" length="19" />
+        </property>
+        <property name="pmId" type="java.lang.Integer">
+            <column name="pm_id" />
+        </property>
+        <property name="discountType" type="string">
+            <column name="discount_type" length="50" />
+        </property>
+        <property name="discountQuantity" type="java.lang.Float">
+            <column name="discount_quantity" precision="12" scale="0" />
+        </property>
+        <property name="couponId" type="string">
+            <column name="coupon_id" length="20" />
+        </property>
+        <property name="discountAmount" type="big_decimal">
+            <column name="discount_amount" precision="15" scale="4" />
+        </property>
+        <property name="redeemPoints" type="java.lang.Integer">
+            <column name="redeem_points" />
+        </property>
+    </class>
+</hibernate-mapping>

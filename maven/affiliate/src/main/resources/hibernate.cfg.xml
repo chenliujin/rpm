@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://192.168.0.227:3306/zencart?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">zencart</property>
+    <property name="hibernate.connection.password">d8mE8*K484</property>
+    <mapping resource="com/tinydeal/affiliate/CustomersPoints.hbm.xml"/>
+    <mapping resource="com/tinydeal/affiliate/Affiliate.hbm.xml"/>
+    <mapping resource="com/tinydeal/affiliate/Orders.hbm.xml"/>
+    <mapping resource="com/tinydeal/affiliate/OrdersProducts.hbm.xml"/>
+    <mapping resource="com/tinydeal/affiliate/OrdersTotal.hbm.xml"/>
+    <mapping resource="com/tinydeal/affiliate/AffiliateHistory.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

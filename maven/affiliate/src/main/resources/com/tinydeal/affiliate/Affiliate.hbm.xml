@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-9 10:59:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.tinydeal.affiliate.Affiliate" table="affiliate" catalog="zencart" optimistic-lock="version">
+        <id name="affiliateId" type="java.lang.Integer">
+            <column name="affiliate_id" />
+            <generator class="identity" />
+        </id>
+        <property name="customersId" type="int">
+            <column name="customers_id" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;id</comment>
+            </column>
+        </property>
+        <property name="website" type="string">
+            <column name="website" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="12">
+                <comment>&#213;&#219;&#191;&#219;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="enterTimes" type="int">
+            <column name="enter_times" not-null="true">
+                <comment>&#215;&#162;&#178;&#225;&#180;&#206;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="boughtOrderTotal" type="big_decimal">
+            <column name="bought_order_total" precision="14">
+                <comment>&#185;&#186;&#194;&#242;&#215;&#220;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="lastModified" type="timestamp">
+            <column name="last_modified" length="19" />
+        </property>
+        <property name="affiliateLevel" type="java.lang.Integer">
+            <column name="affiliate_level" />
+        </property>
+    </class>
+</hibernate-mapping>

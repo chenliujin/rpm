@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-9 10:59:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.tinydeal.affiliate.OrdersTotal" table="orders_total" catalog="zencart" optimistic-lock="version">
+        <id name="ordersTotalId" type="java.lang.Integer">
+            <column name="orders_total_id" />
+            <generator class="identity" />
+        </id>
+        <property name="ordersId" type="int">
+            <column name="orders_id" not-null="true" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" not-null="true" />
+        </property>
+        <property name="text" type="string">
+            <column name="text" not-null="true" />
+        </property>
+        <property name="value" type="big_decimal">
+            <column name="value" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="class_" type="string">
+            <column name="class" length="32" not-null="true" />
+        </property>
+        <property name="sortOrder" type="int">
+            <column name="sort_order" not-null="true" />
+        </property>
+        <property name="storeModuleId" type="int">
+            <column name="store_module_id" not-null="true" />
+        </property>
+        <property name="comments" type="string">
+            <column name="comments" length="1024" />
+        </property>
+        <property name="lastModified" type="timestamp">
+            <column name="last_modified" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

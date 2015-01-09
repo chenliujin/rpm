@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-9 10:59:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.tinydeal.affiliate.Orders" table="orders" catalog="zencart" optimistic-lock="version">
+        <id name="ordersId" type="java.lang.Integer">
+            <column name="orders_id" />
+            <generator class="identity" />
+        </id>
+        <property name="customersId" type="int">
+            <column name="customers_id" not-null="true" />
+        </property>
+        <property name="customersName" type="string">
+            <column name="customers_name" length="64" not-null="true" />
+        </property>
+        <property name="customersCompany" type="string">
+            <column name="customers_company" length="64" />
+        </property>
+        <property name="customersStreetAddress" type="string">
+            <column name="customers_street_address" length="128" />
+        </property>
+        <property name="customersSuburb" type="string">
+            <column name="customers_suburb" length="64" />
+        </property>
+        <property name="customersCity" type="string">
+            <column name="customers_city" length="32" not-null="true" />
+        </property>
+        <property name="customersPostcode" type="string">
+            <column name="customers_postcode" length="64" />
+        </property>
+        <property name="customersState" type="string">
+            <column name="customers_state" length="32" />
+        </property>
+        <property name="customersCountry" type="string">
+            <column name="customers_country" length="32" not-null="true" />
+        </property>
+        <property name="customersTelephone" type="string">
+            <column name="customers_telephone" length="32" not-null="true" />
+        </property>
+        <property name="customersEmailAddress" type="string">
+            <column name="customers_email_address" length="96" not-null="true" />
+        </property>
+        <property name="customersAddressFormatId" type="int">
+            <column name="customers_address_format_id" not-null="true" />
+        </property>
+        <property name="deliveryName" type="string">
+            <column name="delivery_name" length="64" not-null="true" />
+        </property>
+        <property name="deliveryCompany" type="string">
+            <column name="delivery_company" length="64" />
+        </property>
+        <property name="deliveryStreetAddress" type="string">
+            <column name="delivery_street_address" length="128" />
+        </property>
+        <property name="deliverySuburb" type="string">
+            <column name="delivery_suburb" length="64" />
+        </property>
+        <property name="deliveryCity" type="string">
+            <column name="delivery_city" length="32" not-null="true" />
+        </property>
+        <property name="deliveryPostcode" type="string">
+            <column name="delivery_postcode" length="64" />
+        </property>
+        <property name="deliveryState" type="string">
+            <column name="delivery_state" length="32" />
+        </property>
+        <property name="deliveryCountry" type="string">
+            <column name="delivery_country" length="32" not-null="true" />
+        </property>
+        <property name="deliveryAddressFormatId" type="int">
+            <column name="delivery_address_format_id" not-null="true" />
+        </property>
+        <property name="deliveryTelephone" type="string">
+            <column name="delivery_telephone" length="32" not-null="true" />
+        </property>
+        <property name="deliveryCpf" type="string">
+            <column name="delivery_cpf" length="32" not-null="true" />
+        </property>
+        <property name="billingName" type="string">
+            <column name="billing_name" length="64" not-null="true" />
+        </property>
+        <property name="billingCompany" type="string">
+            <column name="billing_company" length="64" />
+        </property>
+        <property name="billingStreetAddress" type="string">
+            <column name="billing_street_address" length="128" />
+        </property>
+        <property name="billingSuburb" type="string">
+            <column name="billing_suburb" length="64" />
+        </property>
+        <property name="billingCity" type="string">
+            <column name="billing_city" length="32" not-null="true" />
+        </property>
+        <property name="billingPostcode" type="string">
+            <column name="billing_postcode" length="64" />
+        </property>
+        <property name="billingState" type="string">
+            <column name="billing_state" length="32" />
+        </property>
+        <property name="billingCountry" type="string">
+            <column name="billing_country" length="32" not-null="true" />
+        </property>
+        <property name="billingAddressFormatId" type="int">
+            <column name="billing_address_format_id" not-null="true" />
+        </property>
+        <property name="paymentMethod" type="string">
+            <column name="payment_method" length="128" not-null="true" />
+        </property>
+        <property name="paymentModuleCode" type="string">
+            <column name="payment_module_code" length="32" not-null="true" />
+        </property>
+        <property name="shippingMethod" type="string">
+            <column name="shipping_method" length="128" not-null="true" />
+        </property>
+        <property name="shippingModuleCode" type="string">
+            <column name="shipping_module_code" length="64" />
+        </property>
+        <property name="couponCode" type="string">
+            <column name="coupon_code" length="32" not-null="true" />
+        </property>
+        <property name="ccType" type="string">
+            <column name="cc_type" length="20">
+                <comment>&#208;&#197;&#211;&#195;&#191;&#168;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="ccOwner" type="string">
+            <column name="cc_owner" length="64">
+                <comment>&#179;&#214;&#191;&#168;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="ccNumber" type="string">
+            <column name="cc_number" length="32">
+                <comment>&#191;&#168;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="ccExpires" type="string">
+            <column name="cc_expires" length="4">
+                <comment>&#208;&#197;&#211;&#195;&#191;&#168;&#185;&#253;&#198;&#218;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="ccCvv" type="binary">
+            <column name="cc_cvv">
+                <comment>&#208;&#197;&#211;&#195;&#191;&#168;&#209;&#233;&#214;&#164;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="lastModified" type="timestamp">
+            <column name="last_modified" length="19" />
+        </property>
+        <property name="datePurchased" type="timestamp">
+            <column name="date_purchased" length="19">
+                <comment>&#185;&#186;&#194;&#242;&#202;&#177;&#188;&#228;(&#207;&#194;&#181;&#165;&#202;&#177;&#188;&#228;)</comment>
+            </column>
+        </property>
+        <property name="ordersStatus" type="int">
+            <column name="orders_status" not-null="true">
+                <comment>&#211;&#235;orders_status&#177;&#237;&#207;&#224;&#185;&#216;&#193;&#170;</comment>
+            </column>
+        </property>
+        <property name="ordersDateFinished" type="timestamp">
+            <column name="orders_date_finished" length="19">
+                <comment>&#210;&#209;&#184;&#182;&#191;&#238;&#202;&#177;&#188;&#228;&#161;&#163;</comment>
+            </column>
+        </property>
+        <property name="currency" type="string">
+            <column name="currency" length="3">
+                <comment>&#177;&#210;&#214;&#214;</comment>
+            </column>
+        </property>
+        <property name="currencyValue" type="big_decimal">
+            <column name="currency_value" precision="13" scale="8" />
+        </property>
+        <property name="orderTotal" type="big_decimal">
+            <column name="order_total" precision="14">
+                <comment>&#184;&#249;&#190;&#221;&#177;&#210;&#214;&#181;&#187;&#187;&#203;&#227;&#186;&#243;&#182;&#169;&#181;&#165;&#215;&#220;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="orderTax" type="big_decimal">
+            <column name="order_tax" precision="14">
+                <comment>&#203;&#176;</comment>
+            </column>
+        </property>
+        <property name="paypalIpnId" type="int">
+            <column name="paypal_ipn_id" not-null="true" />
+        </property>
+        <property name="ipAddress" type="string">
+            <column name="ip_address" length="96" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;ip&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="ordersTag" type="string">
+            <column name="orders_tag" unique="true">
+                <comment>&#182;&#169;&#181;&#165;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="ordersFromCountry" type="string">
+            <column name="orders_from_country" length="64" />
+        </property>
+        <property name="ordersToCountry" type="string">
+            <column name="orders_to_country" length="64" />
+        </property>
+        <property name="trackNumber" type="string">
+            <column name="track_number" length="64">
+                <comment>&#184;&#250;&#215;&#217;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="visitSessionsId" type="java.lang.Integer">
+            <column name="visit_sessions_id">
+                <comment>&#182;&#169;&#181;&#165;&#180;&#180;&#189;&#168;&#213;&#223;&#187;&#225;&#187;&#176;id</comment>
+            </column>
+        </property>
+        <property name="transactionId" type="string">
+            <column name="Transaction_ID" length="50">
+                <comment>OMS&#182;&#169;&#181;&#165;&#177;&#234;&#202;&#182;(ebay&#182;&#169;&#181;&#165;)</comment>
+            </column>
+        </property>
+        <property name="paypalAccount" type="string">
+            <column name="paypal_account">
+                <comment>&#191;&#205;&#187;&#167;paypal&#213;&#203;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="salerId" type="string">
+            <column name="saler_id" length="50">
+                <comment>&#191;&#205;&#187;&#167;eBay&#213;&#203;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="omsOrderId" type="java.lang.Integer">
+            <column name="Oms_order_id">
+                <comment>OMS&#182;&#169;&#181;&#165;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="cookieVisitSessionsId" type="java.lang.Integer">
+            <column name="cookie_visit_sessions_id">
+                <comment>&#182;&#169;&#181;&#165;&#180;&#180;&#189;&#168;&#213;&#223;cookie d</comment>
+            </column>
+        </property>
+        <property name="storeModuleId" type="int">
+            <column name="store_module_id" not-null="true">
+                <comment>0&#163;&#186;&#214;&#247;&#205;&#248;&#213;&#190;&#161;&#170;&#161;&#170;www.tinydeal.com; 1&#163;&#186;seller.tinydeal.com; 2: eBay; 3:
+                wholesale.tinydeal.com; 4: mobile.tinydeal.com</comment>
+            </column>
+        </property>
+        <property name="isPackaged" type="short">
+            <column name="is_packaged" not-null="true">
+                <comment>
+                0:&#177;&#237;&#202;&#190;&#195;&#187;&#211;&#208;&#202;&#185;&#211;&#195;&#176;&#252;&#163;&#172;1&#163;&#186;&#177;&#237;&#202;&#190;&#202;&#185;&#211;&#195;&#176;&#252;</comment>
+            </column>
+        </property>
+        <property name="asAGift" type="java.lang.Boolean">
+            <column name="as_a_gift">
+                <comment>&#182;&#169;&#181;&#165;&#214;&#208;&#202;&#199;&#183;&#241;&#176;&#252;&#186;&#172;&#192;&#241;&#198;&#183;</comment>
+            </column>
+        </property>
+        <property name="usePaypalAddress" type="int">
+            <column name="use_paypal_address" not-null="true">
+                <comment>
+                1&#177;&#237;&#202;&#190;&#202;&#185;&#211;&#195;PAYPAL&#163;&#172;0&#177;&#237;&#202;&#190;&#202;&#185;&#211;&#195;&#211;&#195;&#187;&#167;&#201;&#232;&#214;&#195;&#181;&#196;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="versionOfCode" type="string">
+            <column name="version_of_code" length="64" />
+        </property>
+        <property name="transportationsId" type="java.lang.Integer">
+            <column name="transportations_id" />
+        </property>
+        <property name="sendStoredProducts" type="java.lang.Short">
+            <column name="send_stored_products">
+                <comment>&#202;&#199;&#183;&#241;&#207;&#200;&#183;&#162;&#211;&#208;&#187;&#245;&#201;&#204;&#198;&#183;</comment>
+            </column>
+        </property>
+        <property name="promoteReferral" type="string">
+            <column name="promote_referral" length="2000" not-null="true">
+                <comment>&#192;&#180;&#212;&#180;</comment>
+            </column>
+        </property>
+        <property name="addressBookId" type="int">
+            <column name="address_book_id" not-null="true" />
+        </property>
+        <property name="paymentStatus" type="java.lang.Short">
+            <column name="payment_status" />
+        </property>
+        <property name="ordersToken" type="string">
+            <column name="orders_token" length="64" />
+        </property>
+        <property name="ordersSource" type="string">
+            <column name="orders_source" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>
