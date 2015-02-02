@@ -91,7 +91,7 @@
 <XPD:ATTR name="Left" type="integer">176</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">16</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">136</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">277</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">290</XPD:ATTR>
 <XPD:REF name="Model">dHcnim02XkK6LRV/sfNutgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="NOuj69Cw4EaQwL1CQyoqUgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="5wUJQfq2NUKrWeG3iN4wmAAA">
@@ -209,7 +209,7 @@
 <XPD:REF name="Views[1]">dm4OZfNR8U2DrYrNsRi34gAA</XPD:REF>
 <XPD:REF name="Views[2]">iKBPlJwY6EKbZNfij9XV6QAA</XPD:REF>
 <XPD:REF name="Views[3]">IJB6Zybcr064IioBavAV+QAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">18</XPD:ATTR>
+<XPD:ATTR name="#Attributes" type="integer">19</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="H5XMO3Z6J0ul8Qodidca6AAA">
 <XPD:ATTR name="Name" type="string">site</XPD:ATTR>
 <XPD:REF name="Owner">dHcnim02XkK6LRV/sfNutgAA</XPD:REF>
@@ -280,6 +280,10 @@
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[17]" type="UMLAttribute" guid="e554bWZs2UKk+Xk4Bvz2SAAA">
 <XPD:ATTR name="Name" type="string">currency</XPD:ATTR>
+<XPD:REF name="Owner">dHcnim02XkK6LRV/sfNutgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[18]" type="UMLAttribute" guid="ZFgx0Q/XV0G0RAxeg/ksogAA">
+<XPD:ATTR name="Name" type="string">country_code</XPD:ATTR>
 <XPD:REF name="Owner">dHcnim02XkK6LRV/sfNutgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
