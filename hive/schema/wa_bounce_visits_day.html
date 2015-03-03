@@ -1,6 +1,7 @@
 <pre>
 CREATE EXTERNAL TABLE wa_bounce_visits_day (
-	session_id STRING
+	session_id STRING,
+	distinct_url_count STRING
 )
 PARTITIONED BY (site STRING, created_date STRING);	
 </pre>
