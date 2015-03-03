@@ -1,6 +1,8 @@
+<pre>
 CREATE EXTERNAL TABLE nginx_page_load_time (
 	pv INT,
 	total_time STRING,
 	load_time STRING
 )
-PARTITIONED BY (site STRING, created_date STRING, created_time STRING);
+PARTITIONED BY (site STRING, created_date STRING, created_time STRING);	
+</pre>
