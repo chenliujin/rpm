@@ -1,0 +1,21 @@
+<h1>log3 tasktracker Î´Æô¶¯£¿</h1>
+<pre>
+[root@log2 ~]# /usr/sbin/stop-all.sh
+stopping jobtracker
+log3: no tasktracker to stop
+log1: stopping tasktracker
+stopping namenode
+log3: stopping datanode
+log1: stopping datanode
+log2: stopping secondarynamenode
+
+
+[root@log2 ~]# /usr/sbin/start-all.sh
+starting namenode, logging to /var/log/hadoop/root/hadoop-root-namenode-log2.tinydeal.net.out
+log3: starting datanode, logging to /var/log/hadoop/root/hadoop-root-datanode-log3.tinydeal.net.out
+log1: starting datanode, logging to /var/log/hadoop/root/hadoop-root-datanode-log1.tinydeal.net.out
+log2: starting secondarynamenode, logging to /var/log/hadoop/root/hadoop-root-secondarynamenode-log2.tinydeal.net.out
+starting jobtracker, logging to /var/log/hadoop/root/hadoop-root-jobtracker-log2.tinydeal.net.out
+log3: starting tasktracker, logging to /var/log/hadoop/root/hadoop-root-tasktracker-log3.tinydeal.net.out
+log1: starting tasktracker, logging to /var/log/hadoop/root/hadoop-root-tasktracker-log1.tinydeal.net.out	
+</pre>
