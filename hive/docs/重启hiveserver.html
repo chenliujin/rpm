@@ -1,0 +1,33 @@
+<h1>查找hiveserver对应的进程id，默认端口号10000</h1>
+<pre>
+[root@vm1 ~]# netstat -anp | grep LISTEN
+tcp        0      0 0.0.0.0:50030               0.0.0.0:*                   LISTEN      50004/java
+tcp        0      0 0.0.0.0:111                 0.0.0.0:*                   LISTEN      1110/rpcbind
+tcp        0      0 0.0.0.0:10000               0.0.0.0:*                   LISTEN      44158/java
+tcp        0      0 0.0.0.0:80                  0.0.0.0:*                   LISTEN      49431/nginx
+tcp        0      0 172.16.64.128:8020          0.0.0.0:*                   LISTEN      49797/java
+tcp        0      0 172.16.64.128:8021          0.0.0.0:*                   LISTEN      50004/java
+tcp        0      0 0.0.0.0:50070               0.0.0.0:*                   LISTEN      49797/java
+tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1147/sshd
+tcp        0      0 127.0.0.1:25                0.0.0.0:*                   LISTEN      1171/sendmail
+tcp        0      0 0.0.0.0:4730                0.0.0.0:*                   LISTEN      49465/gearmand
+tcp        0      0 0.0.0.0:5666                0.0.0.0:*                   LISTEN      1155/nrpe
+tcp        0      0 127.0.0.1:9000              0.0.0.0:*                   LISTEN      11364/php-fpm
+tcp        0      0 0.0.0.0:50090               0.0.0.0:*                   LISTEN      49939/java
+tcp        0      0 :::111                      :::*                        LISTEN      1110/rpcbind
+tcp        0      0 :::8080                     :::*                        LISTEN      1221/httpd
+tcp        0      0 :::22                       :::*                        LISTEN      1147/sshd
+tcp        0      0 :::4730                     :::*                        LISTEN      49465/gearmand
+unix  2      [ ACC ]     STREAM     LISTENING     6990   1/init              @/com/ubuntu/upstart
+unix  2      [ ACC ]     STREAM     LISTENING     8646   1110/rpcbind        /var/run/rpcbind.sock
+</pre>
+
+<h1>杀掉正在运行的进程</h1>
+<pre>
+$ kill -9 44158	
+</pre>
+
+<h1>重启服务</h1>
+<pre>
+nohup /opt/hive/bin/hive --service hiveserver >> /var/log/hive/hive.log 2>&1 &	
+</pre>
