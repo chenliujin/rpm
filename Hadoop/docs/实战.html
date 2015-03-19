@@ -19,3 +19,6 @@ starting jobtracker, logging to /var/log/hadoop/root/hadoop-root-jobtracker-log2
 log3: starting tasktracker, logging to /var/log/hadoop/root/hadoop-root-tasktracker-log3.tinydeal.net.out
 log1: starting tasktracker, logging to /var/log/hadoop/root/hadoop-root-tasktracker-log1.tinydeal.net.out	
 </pre>
+
+<h1>存储空间不够？</h1>
+<p>查看/data下的文件才100G，但是Hadoop却使用了500G的空间，可能是执行查询的时候保存在/tmp目录下的临时数据占用太多太多空间造成的，距离上一次重启快一年的时间了，再重启一下，/tmp下的数据就会被清楚掉了</p>
