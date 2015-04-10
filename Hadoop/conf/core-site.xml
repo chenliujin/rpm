@@ -13,3 +13,5 @@
         <value>/home/hadoop/tmp/hadoop-${user.name}</value>
     </property>
 </configuration>
+
+<!-- https://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/core-default.xml -->
