@@ -1,0 +1,24 @@
+<h1>* 2015-04-10</h1>
+<p>/tmp空间不足</p>
+<p>修改core-site.xml，设置hadoop.tmp.dir为/home/hadoop/tmp/hadoop-${user.name}</p>
+<pre>
+2015-04-05 23:02:33,193 WARN org.apache.hadoop.mapred.TaskTracker: Error initializing attempt_201503201017_3496_m_000020_0:
+java.io.FileNotFoundException: /tmp/hadoop-root/mapred/local/taskTracker/root/jobcache/job_201503201017_3496/jars/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPGreaterThan$1.class (设备上没有空间)
+    at java.io.FileOutputStream.open(Native Method)
+    at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+    at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
+    at org.apache.hadoop.util.RunJar.unJar(RunJar.java:51)
+    at org.apache.hadoop.mapred.JobLocalizer.localizeJobJarFile(JobLocalizer.java:277)
+    at org.apache.hadoop.mapred.JobLocalizer.localizeJobFiles(JobLocalizer.java:377)
+    at org.apache.hadoop.mapred.JobLocalizer.localizeJobFiles(JobLocalizer.java:367)
+    at org.apache.hadoop.mapred.DefaultTaskController.initializeJob(DefaultTaskController.java:211)
+    at org.apache.hadoop.mapred.TaskTracker$4.run(TaskTracker.java:1331)
+    at java.security.AccessController.doPrivileged(Native Method)
+    at javax.security.auth.Subject.doAs(Subject.java:415)
+    at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1149)
+    at org.apache.hadoop.mapred.TaskTracker.initializeJob(TaskTracker.java:1306)
+    at org.apache.hadoop.mapred.TaskTracker.localizeJob(TaskTracker.java:1221)
+    at org.apache.hadoop.mapred.TaskTracker$5.run(TaskTracker.java:2581)
+    at java.lang.Thread.run(Thread.java:745)
+</pre>
+
