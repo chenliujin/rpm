@@ -1,0 +1,20 @@
+<h1>Bounce Visits</h1>
+<pre>
+SELECT session_id, COUNT(DISTINCT url)
+FROM access_log
+WHERE site = '' and created_date = ''
+GROUP BY session_id
+HAVING COUNT(DISTINCT url) = 1	
+</pre>
+
+<h1>Total Visits</h1>
+
+<h1>指定页面的跳出率（如首页，搜索页）</h1>
+<p>着陆页（用户来到网站的第一个页面）是指定页面, 有转化，不算跳出，没有转化，算跳出</p>
+
+
+<h1>参考文献</h1>
+<ul>
+	<li>http://baike.baidu.com/link?url=dZ4kBKKlI_xmuw2gH_2ZEDwgBf4gO6AHUIPJ-I_R3acO7HZfdIMzT0IO-iUwaYZZ30SltYn24EvDpS3sK88VTq</li>
+	<li>http://baike.baidu.com/link?url=lA3rV_zLz1OuzmwmkeS5kvw9zdXTTH-UpqjMm_pwfU7zTPEs8tSig1AvilqTnX_Z6J2FE4IhLy7lgHBWBXd98_</li>
+</ul>
