@@ -1,6 +1,14 @@
+<h1>安装HBase</h1>
 <pre>
 $ tar -xzvf hbase-1.0.0-bin.tar.gz
 $ mv hbase-1.0.0 /opt/
 $ cd /opt/
 $ ln -s hbase-1.0.0 hbase	
+</pre>
+
+<h1>配置</h1>
+
+<h1>同步各服务器时间</h1>
+<pre>
+0 * * * * rdate -s time.nist.gov
 </pre>
