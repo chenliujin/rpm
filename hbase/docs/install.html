@@ -1,4 +1,22 @@
-<h1>瀹夎HBase</h1>
+<h1>确定Hadoop版本</h1>
+<pre>
+1.2.1-1	
+</pre>
+
+<h1>确定支持Hadoop 1.2.1-1版本的Hbase</h1>
+<pre>
+hbase-0.98.8-hadoop1-bin.tar.gz	
+</pre>
+
+<h1>安装HBase</h1>
+<pre>
+$ tar -xzvf hbase-0.98.8-hadoop1-bin.tar.gz	
+$ mv hbase-0.98.8-hadoop1 /opt/
+$ cd /opt/
+$ ln -s hbase-0.98.8-hadoop1 hbase	
+</pre>
+
+<h1>安装HBase(此为错误的HBase版本)</h1>
 <pre>
 $ tar -xzvf hbase-1.0.0-bin.tar.gz
 $ mv hbase-1.0.0 /opt/
@@ -6,9 +24,9 @@ $ cd /opt/
 $ ln -s hbase-1.0.0 hbase	
 </pre>
 
-<h1>閰嶇疆</h1>
+<h1>配置</h1>
 
-<h1>鍚屾鍚勬湇鍔″櫒鏃堕棿</h1>
+<h1>同步各服务器时间</h1>
 <pre>
 0 * * * * rdate -s time.nist.gov
 </pre>
