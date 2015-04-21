@@ -23,4 +23,9 @@
         <name>hive.exec.dynamic.partition.mode</name>
         <value>nonstrict</value>
     </property>
+	
+	<property>
+		<name>hive.zookeeper.quorum</name>
+		<value>vm1</value>
+	</property>
 </configuration>
