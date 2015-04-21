@@ -22,3 +22,22 @@ $ cp /opt/hbase/lib/protobuf-java-2.5.0.jar		/usr/share/hadoop/lib/
 $ rsync /usr/share/hadoop/lib/protobuf-java-2.5.0.jar	vm2:/usr/share/hadoop/lib/
 $ rsync /usr/share/hadoop/lib/protobuf-java-2.5.0.jar	vm3:/usr/share/hadoop/lib/
 </pre>
+
+<h1>hive-site.xml</h1>
+<textarea>
+    <property>
+        <name>hive.zookeeper.quorum</name>
+        <value>vm1</value>
+    </property>
+</textarea>
+
+<h1>hive-env.sh</h1>
+<pre>
+export HIVE_CONF_DIR=/opt/hive/conf
+export HIVE_AUX_JARS_PATH=/opt/hive/lib	
+</pre>
+
+<h1>╡н©╪ндов</h1>
+<ul>
+	<li>https://cwiki.apache.org/confluence/display/Hive/HBaseIntegration</li>
+</ul>
