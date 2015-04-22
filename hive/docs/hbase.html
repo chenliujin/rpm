@@ -2,7 +2,7 @@
 <pre>
 * hadoop-1.2.1
 * hbase-0.98.8-hadoop1
-* hive-0.12.0	
+* apache-hive-0.13.1-bin.tar.gz
 </pre>
 
 <h1>jar</h1>
@@ -16,9 +16,10 @@ $ cp /opt/hbase/lib/zookeeper-3.4.6.jar			/opt/hive/lib/
 $ cp /opt/hbase/lib/htrace-core-2.04.jar		/opt/hive/lib/
 $ cp /opt/hbase/lib/protobuf-java-2.5.0.jar		/opt/hive/lib/
 $ cp /opt/hbase/lib/netty-3.6.6.Final.jar		/opt/hive/lib/ 
+$ cp /opt/hbase/lib/high-scale-lib-1.1.1.jar	/opt/hive/lib/
 
 
-$ cp /opt/hbase/lib/protobuf-java-2.5.0.jar		/usr/share/hadoop/lib/
+$ cp /opt/hbase/lib/protobuf-java-2.5.0.jar				/usr/share/hadoop/lib/
 $ rsync /usr/share/hadoop/lib/protobuf-java-2.5.0.jar	vm2:/usr/share/hadoop/lib/
 $ rsync /usr/share/hadoop/lib/protobuf-java-2.5.0.jar	vm3:/usr/share/hadoop/lib/
 </pre>
