@@ -24,6 +24,18 @@ $ rsync /usr/share/hadoop/lib/protobuf-java-2.5.0.jar	vm2:/usr/share/hadoop/lib/
 $ rsync /usr/share/hadoop/lib/protobuf-java-2.5.0.jar	vm3:/usr/share/hadoop/lib/
 </pre>
 
+<h1>Hadoop</h1>
+<p>mapreduce use hbase conf to write data to hbase</p>
+<pre>
+$ rsync /opt/hbase/conf/hbase-site.xml		vm1:/etc/hadoop/
+$ rsync /opt/hbase/conf/hbase-site.xml		vm2:/etc/hadoop/
+$ rsync /opt/hbase/conf/hbase-site.xml		vm3:/etc/hadoop/
+$ /opt/hbase/bin/stop-hbase.sh #stop hbase
+$ /usr/sbin/stop-all.sh #stop hadoop
+$ /usr/sbin/start-all.sh #start hadoop
+$ /opt/hbase/bin/start-hbase.sh #start hbase
+</pre>
+
 <h1>hive-site.xml</h1>
 <textarea>
     <property>
