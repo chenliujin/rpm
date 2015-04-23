@@ -7,29 +7,28 @@
 
 <h1>jar</h1>
 <pre>
-$ mv /opt/hive/lib/hbase-0.94.6.1.jar		/opt/hive/lib/hbase-0.94.6.1.jar.bak
-$ mv /opt/hive/lib/hbase-0.94.6.1-tests.jar /opt/hive/lib/hbase-0.94.6.1-tests.jar.bak
-$ mv /opt/hive/lib/zookeeper-3.4.3.jar		/opt/hive/lib/zookeeper-3.4.3.jar.bak
+$ mv /opt/hive/lib/zookeeper-3.4.5.jar /opt/hive/lib/zookeeper-3.4.5.jar.bak
 
-$ cp /opt/hbase/lib/hbase*						/opt/hive/lib/ 	
-$ cp /opt/hbase/lib/zookeeper-3.4.6.jar			/opt/hive/lib/
-$ cp /opt/hbase/lib/htrace-core-2.04.jar		/opt/hive/lib/
-$ cp /opt/hbase/lib/protobuf-java-2.5.0.jar		/opt/hive/lib/
-$ cp /opt/hbase/lib/netty-3.6.6.Final.jar		/opt/hive/lib/ 
-$ cp /opt/hbase/lib/high-scale-lib-1.1.1.jar	/opt/hive/lib/
-
-
-$ cp /opt/hbase/lib/protobuf-java-2.5.0.jar				/usr/share/hadoop/lib/
-$ rsync /usr/share/hadoop/lib/protobuf-java-2.5.0.jar	vm2:/usr/share/hadoop/lib/
-$ rsync /usr/share/hadoop/lib/protobuf-java-2.5.0.jar	vm3:/usr/share/hadoop/lib/
+$ cp /opt/hbase/lib/hbase* /opt/hive/lib/ 	
+$ cp /opt/hbase/lib/zookeeper-3.4.6.jar /opt/hive/lib/
+$ cp /opt/hbase/lib/htrace-core-2.04.jar /opt/hive/lib/
+$ cp /opt/hbase/lib/protobuf-java-2.5.0.jar /opt/hive/lib/
+$ cp /opt/hbase/lib/netty-3.6.6.Final.jar /opt/hive/lib/ 
+$ cp /opt/hbase/lib/high-scale-lib-1.1.1.jar /opt/hive/lib/
 </pre>
 
 <h1>Hadoop</h1>
-<p>mapreduce use hbase conf to write data to hbase</p>
 <pre>
-$ rsync /opt/hbase/conf/hbase-site.xml		vm1:/etc/hadoop/
-$ rsync /opt/hbase/conf/hbase-site.xml		vm2:/etc/hadoop/
-$ rsync /opt/hbase/conf/hbase-site.xml		vm3:/etc/hadoop/
+$ rsync /opt/hbase/lib/protobuf-java-2.5.0.jar vm1:/usr/share/hadoop/lib/
+$ rsync /opt/hbase/lib/protobuf-java-2.5.0.jar vm2:/usr/share/hadoop/lib/
+$ rsync /opt/hbase/lib/protobuf-java-2.5.0.jar vm3:/usr/share/hadoop/lib/
+
+# mapreduce use hbase conf to write data to hbase
+$ rsync /opt/hbase/conf/hbase-site.xml vm1:/etc/hadoop/
+$ rsync /opt/hbase/conf/hbase-site.xml vm2:/etc/hadoop/
+$ rsync /opt/hbase/conf/hbase-site.xml vm3:/etc/hadoop/
+
+
 $ /opt/hbase/bin/stop-hbase.sh #stop hbase
 $ /usr/sbin/stop-all.sh #stop hadoop
 $ /usr/sbin/start-all.sh #start hadoop
