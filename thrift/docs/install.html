@@ -1,0 +1,24 @@
+<h1>Version</h1>
+<p>thrift-0.9.1</p>
+<p>thrift-0.9.2</p>
+
+<h1>CentOS Version</h1>
+<p>CentOS 7</p>
+
+<h1>Dependencies</h1>
+<pre>
+$ yum install -y glibc #glibc-2.14 仅在CentOS 7中有，所以CenOS 5/6/6.5等不能安装thrift-0.9.2
+$ yum install -y libtool
+$ yum install -y bison
+$ yum install -y flex	
+</pre>
+
+<h1>PHP</h1>
+<pre>
+$ cp -R thrift-0.9.0/lib/php/lib/Thrift /opt/php/lib/ #放到php include_path下
+</pre>
+
+<h1>参考文献</h1>
+<ul>
+	<li>http://pkgs.org/opensuse-factory/opensuse-oss/libthrift-0_9_2-0.9.2-1.1.x86_64.rpm.html</li>
+</ul>
