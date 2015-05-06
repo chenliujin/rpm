@@ -1,4 +1,4 @@
-CREATE TABLE h_wa_orders (
+CREATE EXTERNAL TABLE h_wa_orders (
 	key STRING,
 	site STRING,
 	created_at STRING,
