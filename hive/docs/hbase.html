@@ -51,6 +51,7 @@ export HIVE_AUX_JARS_PATH=/opt/hive/lib
 
 <h1>Hive关联HBase</h1>
 <p><strong>注意：此处的key不能用其它名字替换</strong></p>
+<p>Hive表中不需要包含所有HBase中的列。</p>
 <pre>
 hbase > create 'h_test', 'data'	
 hbase > put 'h_test', '1', 'data:name', 'chenliujin'
