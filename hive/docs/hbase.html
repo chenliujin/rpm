@@ -49,6 +49,20 @@ export HIVE_CONF_DIR=/opt/hive/conf
 export HIVE_AUX_JARS_PATH=/opt/hive/lib	
 </pre>
 
+<h1>Hive关联HBase</h1>
+<p><strong>注意：此处的key不能用其它名字替换</strong></p>
+<pre>
+hbase > create 'h_test', 'data'	
+hbase > put 'h_test', '1', 'data:name', 'chenliujin'
+
+hive > CREATE TABLE (
+     >     key STRING,
+     >     name STRING
+     > )
+     > STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+     > WITH SERDEPROPERTIES ("hbase.columns.mapping" = ":key, data:name");
+</pre>
+
 <h1>参考文献</h1>
 <ul>
 	<li>https://cwiki.apache.org/confluence/display/Hive/HBaseIntegration</li>
