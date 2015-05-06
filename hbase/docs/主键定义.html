@@ -1,0 +1,35 @@
+<h1>主键定义</h1>
+<h2>日期放后面</h2>
+<p>$site-$created_at-$page</p>
+<pre>
+www.chenliujin.com-2015-04-01-index
+www.chenliujin.com-2015-04-01-joke
+www.chenliujin.com-2015-04-01-look
+...
+www.chenliujin.com-2015-04-27-index	
+</pre>
+<p>不可以通过行键范围查找</p>
+<pre>
+scannerOpenWithStop($table, 'www.chenliujin.com-2015-04-01-index', 'www.chenliujin.com-2015-04-27-index', array(), array())
+</pre>
+<p>但是需要用日期匹配的时候可以这样定义</p>
+<pre>
+scannerOpenWithStop($table, 'www.chenliujin.com-2015-04-01', 'www.chenliujin.com-2015-04-27', array(), array())
+</pre>
+
+<p>$site-$page-$created_at</p>
+<pre>
+www.chenliujin.com-index-2015-04-01
+www.chenliujin.com-index-2015-04-02
+...
+www.chenliujin.com-index-2015-04-27
+www.chenliujin.com-joke-2015-04-01
+www.chenliujin.com-joke-2015-04-02
+...
+www.chenliujin.com-joke-2015-04-27	
+</pre>
+<p>可以通过行键范围查找</p>
+<pre>
+scannerOpenWithStop($table, 'www.chenliujin.com-index-2015-04-01', 'www.chenliujin.com-index-2015-04-27', array(), array())	
+</pre>
+
