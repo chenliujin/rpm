@@ -10,4 +10,4 @@ CREATE EXTERNAL TABLE h_wa_orders (
 	created_year STRING
 )
 STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
-WITH SERDEPROPERTIES ("hbase.columns.mapping" = ":key, data:site, data:created_at, data:amount, data:orders_count, data:customers_count, data:created_week, data:created_month, data:created_year");
+WITH SERDEPROPERTIES ("hbase.columns.mapping" = ":key, data:site, data:created_at, data:amount, data:orders_count, data:customers_count, data:created_week, data:created_month, data:created_year")
