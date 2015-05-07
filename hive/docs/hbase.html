@@ -36,7 +36,7 @@ $ /opt/hbase/bin/start-hbase.sh #start hbase
 </pre>
 
 <h1>hive-site.xml</h1>
-<textarea>
+<textarea rows="5" cols="100">
     <property>
         <name>hive.zookeeper.quorum</name>
         <value>vm1</value>
@@ -64,7 +64,10 @@ hive > CREATE TABLE (
      > WITH SERDEPROPERTIES ("hbase.columns.mapping" = ":key, data:name");
 </pre>
 
+<h2>貌似不支持分区表，测试时没写成功，需进一步确认。</h2>
+
 <h1>参考文献</h1>
 <ul>
 	<li>https://cwiki.apache.org/confluence/display/Hive/HBaseIntegration</li>
+	<li>http://my.oschina.net/repine/blog/285015</li>
 </ul>
