@@ -35,6 +35,45 @@ class Hbase
 		$ret = $client->getTableNames();
 		
 		print_r($ret);
+		
+		/*
+		Array
+		(
+			[0] => h_wa_orders
+			[1] => wa_page_load_time_main_page
+			[2] => xyz
+		)
+		*/
+	}
+	
+	/**
+	 * @author chenliujin <liujin.chen@qq.com>
+	 * @since 2015-05-07
+	 */
+	static public function createTable()
+	{
+		$client = self::getInstance();
+		
+		$columns = array(
+			new \Hbase\ColumnDescriptor(array(
+				'name' => 'id:',
+				'maxVersions' => 10
+			)),
+			new \Hbase\ColumnDescriptor(array(
+				'name' => 'name:'
+			)),
+			new \Hbase\ColumnDescriptor(array(
+				'name' => 'score:'
+			)),
+		);
+ 
+		$tableName = "student";
+ 
+		try {
+			$client->createTable($tableName, $columns);
+		} catch (AlreadyExists $ae) {
+			var_dump( "WARN: {$ae->message}\n" );
+		}
 	}
 
     /**
