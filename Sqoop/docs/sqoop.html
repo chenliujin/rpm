@@ -1,0 +1,102 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<link rel="stylesheet" type="text/css" href="./css/thesis.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="content">
+<h2>Sqoop安装</h2>
+<pre>$ yum install -y git
+$ cd /etc/yum.repos.d
+$ wget http://archive.cloudera.com/redhat/cdh/cloudera-cdh3.repo
+$ yum install -y sqoop
+$ java -version
+java version &quot;1.7.0_65&quot;
+$ yum install -y java-1.7.0-openjdk* #need restart hadoop
+$ vim /usr/bin/sqoop
+export HADOOP_HOME=/usr</pre>
+
+<h2>MySQL Connector</h2>
+<pre>$ cd /usr/lib/sqoop/lib
+下载mysql jdbc包</pre>
+
+<h2>Hive Table</h2>
+<ul>
+	<li>Path: /data/rawlog/log/zencart/orders/{site}/{day}/{site}_{day}.db.gz </li>
+</ul>
+
+<h2>Sqoop</h2>
+<ul>
+	<li>指定路径</li>
+	<li>按天</li>
+<li>分区</li>
+<li>桶</li>
+</ul>
+
+<h2>需要解决的问题</h2>
+<ul>
+	<li>字符串中的换行符跟sqoop的换行符重叠</li>
+<li>Blob等类型的字段不可以直接导入到Hive</li>
+</ul>
+
+<h2>Example</h2>
+<dl>
+	<dt>sqoop list-databases</dt>
+	<dt>sqoop list-tables</dt>
+	<dd><pre>$ sqoop list-tables --connect jdbc:mysql://vm2/stats --username stats --password stats</pre></dd>
+	
+	<dt>sqoop create-hive-table</dt>
+	<dd><pre>$ sqoop create-hive-table --connect jdbc:mysql://vm2/stats --username stats --password stats</pre></dd>
+	
+	<dt>sqoop import</dt>
+	<dd>
+	  <pre>$ sqoop import \
+--connect jdbc:mysql://vm2/stats --username stats --password stats \
+--table wa_pv_day
+--where 'id&lt;100'
+--target-dir /data/rawlog/log/zencart/orders/ \
+--fields-terminated-by '\0001' \
+--hive-drop-import-delims \
+--compress \
+-m 1</pre>
+	</dd>
+	
+	<dt>sqoop export</dt>
+	<dd>
+	  <pre>$ sqoop export \
+  --connect jdbc:mysql://vm2/stats --username stats --password stats \
+  --table wa_countries_sales_day \
+  --export-dir /user/hive/warehouse/wa_countries_sales_day/ \
+  --input-fields-terminated-by '\0001' \
+  -m 1</pre>
+	</dd>
+	
+	<dt>--hive-import</dt>
+	<dt>--hive-overwrite</dt>
+	<dt>--hive-drop-import-delims</dt>
+</dl>
+
+<h2>同步频率</h2>
+<ul>
+	<li>三个月内每天一次</li>
+	<li>一年内每周一次</li>
+</ul>
+
+<h2>参考文档</h2>
+<ul>
+	<li>http://sqoop.apache.org/docs/1.4.1-incubating/SqoopUserGuide.html</li>
+<li>http://www.cnblogs.com/L-aho/archive/2012/12/07/2807366.html</li>
+    <li>http://itindex.net/detail/43792-sqoop-mysql-hdfs</li>
+<li>定时增量导入：http://blog.csdn.net/ryantotti/article/details/14226635</li>
+<li>http://blog.csdn.net/csfreebird/article/category/2315865</li>
+<li>http://itindex.net/detail/50866-%E7%94%98%E9%81%93%E5%A4%AB-sqoop</li>
+<li>http://ylzhj02.iteye.com/blog/2054146</li>
+</ul>
+
+<p>1.sqoop: mysql -&gt; hadoop <br>
+  a.压缩格式（hadoop中的压缩格式的效率）</p>
+
+</div>
+</body>
+</html>
