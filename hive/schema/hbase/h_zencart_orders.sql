@@ -68,7 +68,8 @@ CREATE EXTERNAL TABLE h_zencart_orders (
 	version_of_code STRING, 
 	transportations_id INT,
 	send_stored_products INT, 
-	promote_referral STRING 
+	promote_referral STRING,
+	purchased_at STRING
 )
 STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
 WITH SERDEPROPERTIES ("hbase.columns.mapping" = "
@@ -141,6 +142,7 @@ WITH SERDEPROPERTIES ("hbase.columns.mapping" = "
 	data:version_of_code,
 	data:transportations_id,
 	data:send_stored_products,
-	data:promote_referral
+	data:promote_referral,
+	data:purchased_at
 ")
 TBLPROPERTIES ("hbase.table.name" = "h_zencart_orders");
