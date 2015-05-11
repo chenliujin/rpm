@@ -6,8 +6,28 @@
 </head>
 <body>
 <div class="content">
+	
 <h2>Sqoop安装</h2>
-<pre>$ yum install -y git
+<pre>
+$ mv sqoop-1.4.6.bin__hadoop-1.0.0 /opt/
+$ ln -s /opt/sqoop-1.4.6.bin__hadoop-1.0.0 sqoop
+
+$ vim /etc/profile
+export SQOOP_HOME=/opt/sqoop
+export PATH=$PATH:$SQOOP_HOME/bin
+
+$ source /etc/profile
+
+$ cp /opt/sqoop/conf/sqoop-env-template.sh /opt/sqoop/conf/sqoop-env.sh
+$ vim /opt/sqoop/sqoop-evn.sh
+export HADOOP_COMMON_HOME=/usr/
+export HADOOP_MAPRED_HOME=/usr/share/hadoop/
+
+$ cp mysql-connector-java-5.1.25-bin.jar /opt/sqoop/lib/
+
+
+
+$ yum install -y git
 $ cd /etc/yum.repos.d
 $ wget http://archive.cloudera.com/redhat/cdh/cloudera-cdh3.repo
 $ yum install -y sqoop
@@ -15,7 +35,8 @@ $ java -version
 java version &quot;1.7.0_65&quot;
 $ yum install -y java-1.7.0-openjdk* #need restart hadoop
 $ vim /usr/bin/sqoop
-export HADOOP_HOME=/usr</pre>
+export HADOOP_HOME=/usr
+</pre>
 
 <h2>MySQL Connector</h2>
 <pre>$ cd /usr/lib/sqoop/lib
