@@ -106,6 +106,27 @@ export HADOOP_HOME=/usr
 	<dt>--hive-drop-import-delims</dt>
 </dl>
 
+<h1>Import to HBase</h1>
+<p><strong>* If table have primary key and import all the column of MySQL table into HBase table.</strong></p>
+<pre>
+$ sqoop import --connect jdbc:mysql://localhost/db1 --username root --password root --table tableName --hbase-table hbase_tableName  --column-family hbase_table_col1 --hbase-create-table	
+</pre>
+
+<p><strong>* If table have primary key and import only few columns of MySQL table into HBase table.</strong></p>
+<pre>
+$ sqoop import --connect jdbc:mysql://localhost/db1 --username root --password root --table tableName --hbase-table hbase_tableName --columns column1,column2 --column-family hbase_table_col1 --hbase-create-table	
+</pre>
+
+<p><strong>* If table doesn't have primary key then choose one column as a hbase-row-key. Import all the column of MySQL table into HBase table.</strong></p>
+<pre>
+$ sqoop import --connect jdbc:mysql://localhost/db1 --username root --password root --table tableName --hbase-table hbase_tableName --column-family hbase_table_col1 --hbase-row-key column1 --hbase-create-table	
+</pre>
+
+<p><strong>* If table doesn't have primary key then choose one column as a hbase-row-key. Import only few columns of MySQL table into HBase table.</strong></p>
+<pre>
+$ sqoop import --connect jdbc:mysql://localhost/db1 --username root --password root --table tableName --hbase-table hbase_tableName --columns column1,column2 --column-family hbase_table_col --hbase-row-key column1 --hbase-create-table	
+</pre>
+
 <h2>同步频率</h2>
 <ul>
 	<li>三个月内每天一次</li>
@@ -121,6 +142,7 @@ export HADOOP_HOME=/usr
 <li>http://blog.csdn.net/csfreebird/article/category/2315865</li>
 <li>http://itindex.net/detail/50866-%E7%94%98%E9%81%93%E5%A4%AB-sqoop</li>
 <li>http://ylzhj02.iteye.com/blog/2054146</li>
+<li>http://sunqi.iteye.com/blog/1539730</li>
 </ul>
 
 <p>1.sqoop: mysql -&gt; hadoop <br>
