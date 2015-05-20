@@ -2,19 +2,19 @@
 
 day=$1
 
-[ -z $day ] && echo 'Please input day.' && exit
+[ -z $day ] && day=`date -d '-12 hour' +%Y-%m-%d`
 
 /opt/hive/bin/hive -e "
-FROM orders
-
-INSERT OVERWRITE TABLE wa_countries_sales_day
-PARTITION (site, created_date)
-    SELECT delivery_country, SUM(order_total), site, created_date
-    WHERE created_date = '"$day"' AND orders_status IN (2,3,5)
-    GROUP BY site, created_date, delivery_country
+FROM h_zencart_orders
 
 INSERT OVERWRITE TABLE h_wa_orders
-SELECT CONCAT(site, '-', created_date), site, created_date, SUM(order_total), COUNT(orders_id), COUNT(DISTINCT customers_id), weekofyear(created_date), month(created_date), year(created_date)
-WHERE created_date='"$day"' AND orders_status IN (2,3,5)
-GROUP BY site, created_date
+SELECT CONCAT('www.tinydeal.com_', purchased_at), 'www.tinydeal.com' AS site, purchased_at, SUM(order_total), COUNT(orders_id), COUNT(DISTINCT customers_id), weekofyear(purchased_at), month(purchased_at), year(purchased_at)
+WHERE key >= '"$day"' AND orders_status IN (2,3,5)
+GROUP BY purchased_at
+
+INSERT OVERWRITE TABLE h_wa_orders_countries
+SELECT CONCAT('www.tinydeal.com_', purchased_at, '_', delivery_country), 'www.tinydeal.com', purchased_at, delivery_country, SUM(order_total)
+WHERE key >= '"$day"' AND orders_status IN (2,3,5)
+GROUP BY purchased_at, delivery_country
+
 "
