@@ -10,6 +10,15 @@ class countries extends Model
 	{
 		return 'countries';
 	}
+	
+	/**
+	 * @author chenliujin <liujin.chen@qq.com>
+	 * @since 2015-05-17
+	 */
+	public function getPrimaryKey()
+	{
+		return array('countries_id');
+	}
 
 	/**
 	 * @author chenliujin <liujin.chen@qq.com>
@@ -21,7 +30,7 @@ class countries extends Model
 			SELECT *
 			FROM " . self::GetTableName() . "
 			";
-		$result = $this->query($sql, array());
+		$result = $this->query($sql, array(), __CLASS__);
 
 		return $result;
 	}
