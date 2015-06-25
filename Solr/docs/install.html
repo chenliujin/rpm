@@ -1,0 +1,44 @@
+<h1>配置</h1>
+<pre>
+$ cd /opt/solr/server/webapps/
+$ unzip solr.war -d solr
+
+$ cd /opt/tomcat/webapps/	
+$ ln -s /opt/solr/server/webapps/solr solr
+
+$ cp /opt/solr/server/lib/ext/* /opt/solr/server/webapps/solr/WEB-INF/lib/
+
+# 指定 solr/home
+$ vim /opt/tomcat/webapps/solr/WEB-INF/web.xml
+<textarea cols="80" rows="5">
+<env-entry>
+    <env-entry-name>solr/home</env-entry-name>
+    <env-entry-value>/opt/solr/server/solr</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+</env-entry>	
+</textarea>
+
+$ vim /opt/tomcat/conf/server.xml
+<textarea cols="80" rows="3">
+<Connector port="8080" protocol="HTTP/1.1" URLEncoding="UTF-8"
+           connectionTimeout="20000"
+           redirectPort="8443" />
+</textarea>	
+
+
+</pre>
+
+<h1>启动tomcat服务器</h1>
+<pre>
+$ /opt/tomcat/bin/startup.sh	
+</pre>
+
+<h1>关闭防火墙</h1>
+<pre>
+$ systemctl stop firewalld	
+</pre>
+
+<h1>参考文献</h1>
+<ul>
+	<li>http://www.myexception.cn/linux-unix/1944653.html</li>
+</ul>
