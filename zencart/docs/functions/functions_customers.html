@@ -1,0 +1,22 @@
+<h1>zen_get_customer_right</h1>
+<h2>$_COOKIE['right'] = 2</h2>
+<p>可以浏览大客户产品，可以使用分包</p>
+<ul>
+	<li>customers_other_info.use_package_manager = 1</li>
+	<li>或者 $_SESSION ['bigger_customer'] == 1</li>
+	<li>或者 SUM(orders.orders_total) > $50 && MIN(orders.date_purchased)距今超过 30 天</li>
+</ul>
+
+<h2>$_COOKIE['right'] = 1</h2>
+<p>可以浏览大客户产品，不可以分包</p>
+<ul>
+	<li>购买过一次以上，但是金额和时间不满足要求的用户</li>
+</ul>
+
+<h2>$_COOKIE['right'] = 0</h2>
+<p>不可以浏览大客户产品，不可以分包</p>
+<ul>
+	<li>一次也没买过的用户</li>
+</ul>
+
+<hr />
