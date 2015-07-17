@@ -2,7 +2,39 @@
 <ul>
 	<li>产品跳产品</li>
 	<li>产品跳目录</li>
-	<li>黑名单或大客户不可见时，跳转到新品页</li>
+	<li>黑名单或大客户不可见时，跳转到新产品页</li>
+</ul>
+
+<h1>产品状态</h1>
+<ul>
+	<li>
+		<h2>未启用</h2>
+		<p>products.status = 0，需重定向到新产品页（products_new）</p>
+	</li>
+	<li>
+		<h2>启用</h2>
+		<p>products.status = 1</p>
+	</li>
+	<li>
+		<h2>正常销售</h2>
+		<p>products.is_forbid = 0</p>
+	</li>		
+	<li>
+		<h2>禁售</h2>
+		<p>products.is_forbid = 1，需重定向到新产品页</p>
+	</li>
+	<li>
+		<h2>全部用户可见</h2>
+		<p>products.big_customer_only = 0</p>
+	</li>
+	<li>
+		<h2>大客户可见</h2>
+		<p>products.big_customer_only = 1，如果用户是新用户，则重定向到新产品页</p>
+	</li>	
+	<li>
+		<h2>黑白名单</h2>
+		<p>先检查目录是否有黑白名单限制，如果有，再检查产品的黑白名单限制，如果受限，则重定向到新产品页</p>
+	</li>
 </ul>
 
 <h1>语言</h1>
@@ -19,6 +51,8 @@
 <ul>
 	<li>颜色</li>
 	<li>大小</li>
+	<li>产品数量</li>
+	<li>产品图片</li>
 </ul>
 
 <h1>配件</h1>
