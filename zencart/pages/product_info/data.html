@@ -35,6 +35,10 @@
 		<h2>黑白名单</h2>
 		<p>先检查目录是否有黑白名单限制，如果有，再检查产品的黑白名单限制，如果受限，则重定向到新产品页</p>
 	</li>
+	<li>
+		<h2>卖完</h2>
+		<p>products.sold_out = 1</p>
+	</li>
 </ul>
 
 <h1>语言</h1>
@@ -55,7 +59,7 @@
 	<li>产品图片</li>
 </ul>
 
-<h1>配件</h1>
+<h1>配件（Accessories）</h1>
 <ul>
 	<li>手机壳</li>
 	<li>电池</li>
@@ -87,8 +91,21 @@
 <ul>
 	<li>数量限制：小于等于500</li>
 </ul>
+<h2>Add to Cart(Accessories)</h2>
 <h2>Add to Wish List</h2>
 <h2>评论</h2>
+<p>评论权限</p>
+<ul>
+	<li>已登录用户</li>
+	<li>内部用户</li>
+	<li>
+		<p>三个月内有成功购买过此产品，orders.orders_status in (5:Shipped,6:Refuned)，退款的订单不是全额退款(order_refund_operate_log.operate_type != 1)，并且未对此订单进行评论过</p>
+	</li>
+	<li>
+		<p>评论次数限制：最多允许评3次，此限制可配置</p>
+	</li>
+</ul>
+
 <h2>Q & A</h2>
 
 <h1>计数</h1>
