@@ -1,0 +1,3 @@
+$ sed 's/[A-Z]/\l&/g' file
+
+http://blog.chinaunix.net/uid-10540984-id-2014878.html
