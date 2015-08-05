@@ -1,0 +1,12 @@
+            '604' => 1, //Car Accessories
+            '341' => 1, //Clothing & Accessories
+            '404' => 1, //Health & Beauty
+            '398' => 1, //Sports & Outdoor
+            '121' => 1, //Home & Office 8%
+            '135' => 2, //Toys & Hobbies
+            '107' => 2, //Watches & Jewelry
+            '85'  => 2, //Apple & Samsung
+            '534' => 2, //Computer& Networking
+            '597' => 2, //Electronics 5%
+            '54'  => 3, //Cell Phones
+            '997' => 3, //Tablet PCs 3%
