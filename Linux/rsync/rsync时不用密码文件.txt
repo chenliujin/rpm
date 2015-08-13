@@ -1,0 +1,11 @@
+ 当然，不用密码是不可能的，我们平时用rsync同步文件的时候，总是用一个--password-file 指定一个密码文件，这个密码文件比较讨厌，因为这个文件的mod必须是400或者600、或者700，其他用户不能有读权限，因为这个原因，我们的dba之前两次找我，昨天写了个脚本，需要在几十台机器上部署，要是一个个来一个密码文件，岂不烦死，于是man了一下，找到了一个不用密码文件的办法，man的原型如下：
+  RSYNC_PASSWORD
+              Setting  RSYNC_PASSWORD to the required password allows you to run authenticated rsync connections to an rsync dae-
+              mon without user intervention. Note that this does not supply a password to a shell transport such as ssh.
+       USER or LOGNAME
+              The USER or LOGNAME environment variables are used to determine the default username sent to an rsync  server.   If
+              neither is set, the username defaults to "nobody".
+ 
+    说白了，就是在脚本里export RSYNC_PASSWORD 这个变量即可在rsync的时候不用管密码了，这样既不用管权限的问题，也避免了部署脚本时多部署一个文件，还是挺好的。
+    上上周还做了个了不起的事情，呵呵，之前的大批量发布脚本有点麻烦，经过我的改良之后，现在直观、方便、高效了不少，而且将来在新系统上线之时会大大的推广这种发布方式。
+
