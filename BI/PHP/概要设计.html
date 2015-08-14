@@ -1,0 +1,30 @@
+<h1>1 日志文件下载</h1>
+<h2>1.1 原始保存路径</h2>
+<p>/data/rawlog/log/php_error_log/{$ip}/err_log_20150814.log.gz</p>
+
+<h2>1.2 下载脚本</h2>
+<ul>
+	<li>清除3个月前的日志: /data/rawlog/log/php_error_log/{$ip}/err_log_2015 08 14.log</li>
+	<li>下载前一个月份和当前月份的日志
+		<pre>
+		$ download_php_error_log.sh '2015 07'
+		$ download_php_error_log.sh '2015 08'
+		</pre>
+	</li>
+</ul>
+
+<h3>1.3 计划任务</h3>
+<p>每小时执行一次</p>
+
+<h1>2 日志分析</h1>
+<h2>2.1 将有换行的日志合并为一行</h2>
+<h2>2.2 过滤无用的日志</h2>
+<h2>2.3 去掉日期部分：[14-Aug-2015 00:00:08 PRC]</h2>
+<h2>2.4 分析结果保存路径</h2>
+	<p>/data/rawlog/log/php_error_log_stats/20150814/$ip.log</p>
+	<p>/data/rawlog/log/php_error_log_stats/20150814.log</p>
+<h2>2.5 压缩日志文件</h2>
+	<p>* 原始日志文件</p>
+	<p>* 分析结果文件</p>
+<h2>2.6 计划任务</h2>
+	<p>每4小时执行一次</p>
