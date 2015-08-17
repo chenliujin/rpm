@@ -2,9 +2,9 @@
 
 m=$1
 
-if [ $m == -1 ]; then
-    year=`date -d '-1 day' +%Y`;
-    month=`date -d '-1 day' +%m`;
+if [[ $m == '-1' ]]; then
+    year=`date -d '-1 month' +%Y`;
+    month=`date -d '-1 month' +%m`;
 else
     year=`date +%Y`;
     month=`date +%m`;
