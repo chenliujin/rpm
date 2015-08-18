@@ -1,0 +1,26 @@
+<h1>1. 评论总数</h1>
+<pre>
+SELECT COUNT(*) 
+FROM reviews
+WHERE 
+	products_id = ? AND
+	status = 1 
+</pre>
+
+<h1>2. 评论星级</h1>
+<ul>
+	<li>最高5颗星</li>
+	<li>不足1颗星部分：小于0.25部分，忽略；大于等于0.25并且小于0.75部分，取半颗星，大于0.75则取一颗星</li>
+</ul>
+<h2>2.1 星级计算</h2>
+<pre>
+SELECT SUM(price_rating + quality_rating + usefullness_rating + easyuse_rating + service_rating) / COUNT(*) / 5 AS average_rating, COUNT(*) review_total 
+FROM reviews
+WHERE 
+	status = 1
+GROUP BY products_id;
+</pre>
+
+<h1>3. 让评论星级出现在Google搜索结果页</h1>
+<p>https://developers.google.com/structured-data/rich-snippets/reviews</p>
+<p>http://userguide.getfivestars.com/3-tips-for-getting-your-review-stars-to-show-in-google-search/</p>
