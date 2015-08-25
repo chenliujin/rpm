@@ -50,10 +50,9 @@ done
 <h2>2.6 压缩日志文件</h2>
 	<p>* 分析结果文件</p>
 <h2>2.7 计划任务</h2>
-<pre>0 0 * * * 	nohup php_error_log.sh -1 -1 -1 &amp; 	#取前一天对应的年月日
-0 8 * * * 	nohup php_error_log.sh &amp; 	#默认为当天
-0 14 * * * 	nohup php_error_log.sh &amp;
-0 18 * * * 	nohup php_error_log.sh &amp;
-</pre>
+<pre>0  0 * * * 	php_error_log.sh -1 -1 -1 	#取前一天对应的年月日
+0  8 * * * 	php_error_log.sh 	#默认为当天
+0 13 * * * 	php_error_log.sh
+0 18 * * * 	php_error_log.sh</pre>
 
 <h2>2.8 发送邮件</h2>
