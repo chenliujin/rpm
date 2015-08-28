@@ -1,0 +1,39 @@
+<h1>特价/秒杀</h1>
+<ul>
+	<li>产品黑白名单：此产品只在欧洲的一些国家销售（法国，德国，意大利）</li>
+	<li>可以针对某些国家（如：法国）进行特价促销</li>
+	<li>限时：开始时间 - 结束时间，永不过期?!</li>
+	<li>限量</li>
+	<li>加购物车即减库存，并设置倒计时，20min内不下单就会失效，下单20min不支付，此订单也会失效</li>
+	
+    <li>秒杀优于特价，有秒杀先取秒杀价</li>
+</ul>
+
+<h1>Table: product_special</h1>
+<ul>
+	<li>special_id</li>
+	<li>product_id</li>
+	<li>special_quantity_limit</li>
+	<li>special_price</li>
+	<li>special_starttime</li>
+	<li>special_endtime</li>
+	<li>special_status</li>
+	<li>created_at</li>
+	<li>last_modified</li>
+</ul>
+
+<h1>API</h1>
+<ul>
+	<li><strong>ProductSpecial::GetDiscount($product)</strong></li>
+	<li><strong>ProductSpecial::CheckCountry()</strong></li>
+	<li><strong>ProductSpecial::CheckTime()</strong></li>
+	<li><strong>ProductSpecial::CheckStock()</strong></li>
+</ul>
+
+<h1>zencart</h1>
+<ul>
+	<li>ot_special.php</li>
+    <li>functions_price.php: zen_get_products_special_price()</li>
+    <li>var_cache.php: get_special_products()</li>
+</ul>
+
