@@ -1,0 +1,43 @@
+<html>
+<head>
+<style type="text/css">
+* {
+	font-size:16px;
+}
+h1 {
+	margin:0;
+	padding:0;
+}
+p {
+	line-height:12px;
+}
+.title {
+	font-size:1.2em;
+	text-align:center;
+	font-weight:bold;
+}
+</style>
+</head>
+<body>
+<p class="title">Hive教程</p>
+<h1>Q&amp;A</h1>
+<h2>* Internal error processing fetchAll</h2>
+<p>表keyword大概有250000条记录，使用fetchAll获取时Thrift会抛出如下异常：Internal error processing fetchAll。</p>
+<pre>
+$sql = "
+    SELECT site, tag_id, keyword, agent
+    FROM keyword
+    WHERE created_date = '" . $this->day . "'
+	";
+$client->execute($sql);
+$result = $client->fetchAll();
+</pre>
+<p>在SQL加上限制条件limit 50000则可顺利获取，可见fetchAll有size限制。</p>
+<p>因此要改用递增的获取接口fetchOne或fetchN，每次取一条或N条来实现获取全部的数据。</p>
+<pre>
+$client->execute($sql);
+while ($result = $client->fetchN(5000)) {
+}
+</pre>
+</body>
+</html>
