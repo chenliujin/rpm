@@ -1,0 +1,31 @@
+option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['Fashion']
+    },
+    calculable : true,
+    xAxis : [
+        {
+          max: 100,
+            type : 'value',
+            boundaryGap : [0, 0.01]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            data : ['完成交易', '支付订单', '生成订单','放入购物车','浏览商品页面']
+        }
+    ],
+    series : [
+        {
+            name:'Fashion',
+            type:'bar',
+            data:[0.9, 0.9, 0.9, 6.3, 100]
+        }
+    ]
+};
+                    
+
