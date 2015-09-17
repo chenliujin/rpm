@@ -1,0 +1,45 @@
+<h1>Page</h1>
+<ul>
+	<li>http://www.tinydeal.com/index.php?main_page=see_all_images&products_id=145178</li>
+    <li>http://www.test111222.com/index.php?main_page=popup_images_upload&amp;products_id=44174</li>
+    <li>http://www.test111222.com/index.php?main_page=popup_images_upload&amp;from_page=see_all_images&amp;products_id=44174</li>
+</ul>
+
+<h1>File</h1>
+<ul>
+	<li>用户头像？图片处理：includes/modules/pages/customers_photo/header_php.php
+		<ul>
+			<li>处理1：裁剪</li>
+			<li>处理2：不裁剪</li>
+		</ul>
+	</li>
+	<li>customers_images: includes/modules/pages/popup_images_upload/header_php.php</li>
+</ul>
+
+<h1>存储路径</h1>
+<ul>
+	<li>s3_image_uri: /ssd/www/zencart/website/{customers_photo/201507/2224419_folder/product_1451781438009798.jpg}
+		<p>图片已同步到s3：99%的图片都已上传到S3，未上传到S3的图片视为处理失败，服务器之间不再同步图片，后面两个字段的值可以忽略。</p>
+	</li>
+    <li>image_url(包含路径): /ssd/www/zencart/website/customers_photo/{201507/2224419_folder/product_1451781438009798.jpg}
+		<p>图片压缩后的路径</p>
+	</li>
+    <li>/ssd/www/zencart/website/customers_photo/${customers_id}_folder/${image_url}
+		<li>图片上传时保存的路径</li>
+	</li>
+</ul>
+
+<h1>流程</h1>
+<ul>
+	<li>上传的文件保存路径</li>
+	<li>进行压缩</li>
+	<li>存储位置</li>
+	<li>同步：各服务器间的同步</li>
+</ul>
+
+<h1>Function</h1>
+<h2>* resize_image_jpeg</h2>
+<p>图片压缩</p>
+
+<h2>* sync_customer_image</h2>
+<p>图片同步到S3</p>
