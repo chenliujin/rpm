@@ -1,0 +1,36 @@
+签到：
+
+
+Sing::GetWinnerList
+
+* 加锁：sign_lock_win
+  * sing_lock_win = 1，正在派奖
+* GetVitWin:虚拟名单
+  * 生成虚拟奖品指定个数的中奖名单
+* GetRelWin:真实名单
+  * 奖品 + 个数
+  * GetDrawPrizeWin: 已派奖品
+    * Params:
+      * starttime
+      * endtime
+      * prize_id
+    * Table: draw_customers
+    * Redis: draw_price_{$prize_id} 已派奖品个数
+    * Redis: winner_list 已派奖用户
+  * 未派完的继续派奖
+    * 未派送的奖品数量 > 0
+    * 派奖
+    	* GetWinner('20151020'): 
+		* 获取满足条件的用户（连续签到7天）
+      			* 先取Redis
+      			* 后取DB
+    		* 排除已中奖的用户
+    		* 从剩余的用户中随机抽取一个用户
+		* return $customers_id
+    	* SendPrize: 派奖
+		* Table: draw_customers
+		* Redis: incr(draw_prize_{$prize_id})
+		* Redis: winner_list
+    	* SendEmail: 发送中奖邮件
+* Redis：sign_winner_list_{20151020/20151027}
+* email处理，隐藏部分字母
