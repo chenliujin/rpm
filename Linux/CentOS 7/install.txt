@@ -1,0 +1,5 @@
+1.Íø¿¨
+$ vi /etc/sysconfig/network-scripts/ifcfg-ens33
+ONBOOT=yes
+
+$ reboot
