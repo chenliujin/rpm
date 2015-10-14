@@ -1,0 +1,22 @@
+<?php
+
+//DB连接设定，IPN Handler需要用到
+$connection_string = 'mysqli://zencart:CW0GPgM7XU5WPAJ7WkdTMgJuUmM=@192.168.0.227/zencart';
+
+//多版本分组配置
+$version_configs = '<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<group id="" weight="140" expires="2017-07-30 00:00:00">
+		<site id="v20130620" weight="0" expires="2014-07-30 00:00:00" redirect_to="v20130704@G1" />
+		<site id="v20130627" weight="9" expires="2014-07-30 00:00:00" />
+	</group>
+	<group id="G1" weight="0" expires="2017-07-30 00:00:00">
+		<site id="v20130627" weight="30" expires="2014-07-30 00:00:00" />
+		<site id="v20130704" weight="70" expires="2014-07-30 00:00:00" />
+	</group>
+</config>
+';
+//搜索引擎使用的版本版本号可以包含分组信息，如：v20130627@G1
+$version_for_crawler = 'v20130627';
+$log_dir = 'D:/main_project/log/';
+
