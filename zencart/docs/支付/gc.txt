@@ -1,1 +1,3 @@
-4000000000000101
+Card No.:		4000000000000101
+Expiration date:	Month:01 Year:30
+Security code:		123456
