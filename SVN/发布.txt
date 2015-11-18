@@ -1,0 +1,20 @@
+* 打 tag
+	CB-1.1.1.3.0
+
+* 对比文件差异
+	diff tag1 tag2
+	/home/release/20151117/ticket_id/
+
+* 上传到服务器
+	$ useradd -m release
+
+	/home/release/20151117/ticket_id/
+	/home/release/20151118/ticket_id/
+
+* 备份正式对应的文件
+
+$ useradd -m backup_release
+
+	/home/backup_release/20151118/104811/includes/*
+
+* 发布
