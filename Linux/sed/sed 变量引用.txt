@@ -1,0 +1,13 @@
+#!/bin/bash
+
+basedir=$1
+
+if [[ $basedir == '' ]]; then
+    echo 'pls input dir.';
+    exit
+fi
+
+dest='/data/wwww/chenliujin/'
+
+find $basedir -type f | sed -e "s#$1#$dest#g"
+
