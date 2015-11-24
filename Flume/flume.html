@@ -1,3 +1,60 @@
+<h1>日志类型</h1>
+<ul>
+	<li>文件：PHP error log，MySQL slow query log，Apache access log</li>
+	<li>DB: MySQL(Sqoop -> HBase)</li>
+</ul>
+
+
+
+<h1>channel类型（6种）</h1>
+<ul>
+	<li>memory</li>
+</ul>
+
+<h1>同一个服务器不同类型的日志如何同时收集？</h1>
+<p>如：apache log，php error log，mysql log</p>
+<p>A：多个配置，启用多个实例?
+	
+不是，在同一个配置档配置多个agent，启用一个实例应该就可以了（待验证）
+
+agent1.sources	= xxx
+agent1.channels = xxx
+agent1.sinks	= xxx
+...
+
+agent2.sources	= xxx
+agent2.channels = xxx
+agent2.sinks	= xxx
+...
+
+
+比如：
+php_error_log.sources	= xxx
+php_error_log.channels	= xxx
+php_error_log.sinks		= xxx
+...
+
+mysql_slow_query.sources	= xxx
+mysql_slow_query.channels	= xxx
+mysql_slow_query.sinks		= xxx
+...
+
+修正？
+一台服务器只能有一个agent?
+agent.sources	= php_error_log, mysql_slow_query, ...
+agent.channels	= xxx
+agent.sinks		= xxx
+
+agent.sources.php_error_log.type	= xxx
+...
+
+agent.sources.mysql_slow_query.type		= xxx
+...
+
+</p>
+
+<h1>tail 的日志同步到 hadoop 时不是按行存储，多了其它一些类似序列化后的标记？</h1>
+
 <h1>hdfs</h1>
 <h3>分区?</h3>
 <h3>文件数量?</h3>
@@ -6,6 +63,6 @@
 
 <h1>参考文献</h1>
 <ul>
-	<li>http://www.ibm.com/developerworks/cn/data/library/bd-1404flumerevolution/index.html</li>
-	<li>http://tech.meituan.com/mt-log-system-arch.html</li>
+	<li><a href="http://www.ibm.com/developerworks/cn/data/library/bd-1404flumerevolution/index.html">Flume NG：Flume 发展史上的第一次革命</a></li>
+	<li><a href="http://tech.meituan.com/mt-log-system-arch.html">基于Flume的美团日志收集系统(一)架构和设计</a></li>
 </ul>
