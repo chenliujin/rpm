@@ -1,14 +1,31 @@
-<h1>日志类型</h1>
+<h1>架构</h1>
+
+<h1>部署</h1>
+<h2>Host</h2>
 <ul>
-	<li>文件：PHP error log，MySQL slow query log，Apache access log</li>
+	<li>vm1</li>
+	<li>vm2</li>
+	<li>vm3</li>
+</ul>
+
+<h1>Source</h1>
+<ul>
+	<li>文件：PHP error log，MySQL slow query log，Apache/Nginx access log</li>
 	<li>DB: MySQL(Sqoop -> HBase)</li>
+	<li>Web 服务</li>
+	<li>Avro</li>
+	<li>Thrift</li>
+	<li>Syslog</li>
+	<li>Netcat</li>
 </ul>
 
 
 
-<h1>channel类型（6种）</h1>
+<h1>channel: 被动存储</h1>
+<h2>channel类型（6种）</h2>
 <ul>
 	<li>memory</li>
+	<li>file</li>
 </ul>
 
 <h1>同一个服务器不同类型的日志如何同时收集？</h1>
@@ -39,18 +56,6 @@ mysql_slow_query.channels	= xxx
 mysql_slow_query.sinks		= xxx
 ...
 
-修正？
-一台服务器只能有一个agent?
-agent.sources	= php_error_log, mysql_slow_query, ...
-agent.channels	= xxx
-agent.sinks		= xxx
-
-agent.sources.php_error_log.type	= xxx
-...
-
-agent.sources.mysql_slow_query.type		= xxx
-...
-
 </p>
 
 <h1>tail 的日志同步到 hadoop 时不是按行存储，多了其它一些类似序列化后的标记？</h1>
@@ -64,5 +69,6 @@ agent.sources.mysql_slow_query.type		= xxx
 <h1>参考文献</h1>
 <ul>
 	<li><a href="http://www.ibm.com/developerworks/cn/data/library/bd-1404flumerevolution/index.html">Flume NG：Flume 发展史上的第一次革命</a></li>
+	<li><a href="http://www.ibm.com/developerworks/cn/data/library/bd-flumews/">使用 Flume 部署和管理可扩展的 Web 服务</a></li>
 	<li><a href="http://tech.meituan.com/mt-log-system-arch.html">基于Flume的美团日志收集系统(一)架构和设计</a></li>
 </ul>
