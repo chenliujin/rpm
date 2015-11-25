@@ -1,11 +1,14 @@
 <h1>架构</h1>
 
+<h1>安装</h1>
+
 <h1>部署</h1>
+<p>可在同一个配置文件中指定一个或多个代理的配置。配置文件包含一个代理中每个来源、接收器和通道的属性，以及它们如何连接在一起来形成数据流。</p>
 <h2>Host</h2>
 <ul>
-	<li>vm1</li>
-	<li>vm2</li>
-	<li>vm3</li>
+	<li>vm1：代理</li>
+	<li>vm2：代理</li>
+	<li>vm3：收集器</li>
 </ul>
 
 <h1>Source</h1>
@@ -27,6 +30,15 @@
 	<li>memory</li>
 	<li>file</li>
 </ul>
+
+<h1>Sink</h1>
+<ul>
+	<li>File</li>
+	<li>Hadoop</li>
+</ul>
+
+
+<h2>Hadoop: Hive 分区？压缩？</h2>
 
 <h1>同一个服务器不同类型的日志如何同时收集？</h1>
 <p>如：apache log，php error log，mysql log</p>
