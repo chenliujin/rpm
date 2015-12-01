@@ -1,3 +1,21 @@
+<h1>安装</h1>
+<pre>
+$ yum install -y redis	
+</pre>
+
+<h1>配置</h1>
+<pre>
+port 6381
+bind 127.0.0.1 #只能本机访问，请勿设置成 bind 本机IP，这样所有主机都可以访问该主机的6381端口
+</pre>
+
+<h1>启动</h1>
+<pre>
+$ service redis start	
+</pre>
+
+<h1>开机启动</h1>
+<h1>开机重启</h1>
 
 <h1>持久化</h1>
 
@@ -12,4 +30,5 @@
 <ul>
 	<li><a href="http://www.wutianqi.com/?p=3620">Redis info参数总结</a></li>
 	<li><a href="http://blog.csdn.net/java2king/article/details/5754476">Redis配置文件redis.conf参数解读</a></li>
+	<li><a href="http://redis.io/topics/security">Redis 安全</a></li>
 </ul>
