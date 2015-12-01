@@ -1,0 +1,21 @@
+* 可行性
+	* 可正常读写 session 数据
+	* 持久化
+	* 性能
+		* 并发测试数据？
+
+
+* 检查 php 可写 redis 
+
+* 配置项
+define('SESSION_REDIS_HOST',  'localhost');
+define('SESSION_REDIS_PORT',  6379);
+define('SESSION_REDIS_DB',        0);
+
+* _sess_write 加上写 redis
+	* 修改 sessions.php
+	* 先备份，以便恢复
+		$ cp session.php sessions.bak.php
+	* 覆盖
+		$ mv ~/session.php /functions/sessions.php
+* 两小时候后切换
