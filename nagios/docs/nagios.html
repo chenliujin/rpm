@@ -144,24 +144,25 @@ define service {
 
 <h3>* 配置</h3>
 <p>配置Nagios数据输出接口：</p>
-<pre>$ vim /etc/nagios.cfg 
-process_performance_data=1 #默认为0，修改为1
-host_perfdata_command=process-host-perfdata #注释开头#号
-service_perfdata_command=process-service-perfdata #注释开头#号</pre>
+<pre>$ vim /etc/nagios/nagios.cfg 
+process_performance_data=1				#默认为0，修改为1
+host_perfdata_command=process-host-perfdata		#注释开头#号
+service_perfdata_command=process-service-perfdata	#注释开头#号</pre>
 <p>替换commands.cfg命令process-service-perfdata为以下内容：</p>
-<pre>$ vim /etc/objects/commands.cfg 
+<pre>$ vim /etc/nagios/objects/commands.cfg 
 # 'process-host-perfdata' command definition
 define command{
-        command_name    process-host-perfdata
-        command_line    /usr/libexec/pnp4nagios/process_perfdata.pl -d HOSTPERFDATA 
-        }
+    command_name    process-host-perfdata
+    command_line    /usr/libexec/pnp4nagios/process_perfdata.pl -d HOSTPERFDATA 
+    }
 # 'process-service-perfdata' command definition
 define command{
-        command_name    process-service-perfdata
-        command_line    /usr/libexec/pnp4nagios/process_perfdata.pl
-        }</pre>
+    command_name    process-service-perfdata
+    command_line    /usr/libexec/pnp4nagios/process_perfdata.pl
+    }
+</pre>
 <p>在模板配置文件中添加图表图标模板：</p>
-<pre>$ vim /etc/objects/templates.cfg 
+<pre>$ vim /etc/nagios/objects/templates.cfg 
 define host {
 name          host-pnp
 action_url    /pnp4nagios/index.php/graph?host=$HOSTNAME$&srv=_HOST_' class='tips' rel='/pnp4nagios/index.php/popup?host=$HOSTNAME$&srv=_HOST_
@@ -173,7 +174,7 @@ action_url   /pnp4nagios/index.php/graph?host=$HOSTNAME$&srv=$SERVICEDESC$' clas
 register   0
 }</pre>
 <p>复制鼠标悬停图标显示文件：</p>
-<pre>$ cp /usr/share/doc/pnp4nagios-0.6.20/contrib/ssi/* /usr/share/nagios/html/ssi</pre>
+<pre>$ cp /usr/share/doc/pnp4nagios-0.6.25/contrib/ssi/* /usr/share/nagios/html/ssi</pre>
 <p>在监控主机或服务中调用图表模板：</p>
 
 <h3>* 启动服务</h3>
