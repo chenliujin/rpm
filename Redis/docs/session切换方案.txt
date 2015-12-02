@@ -18,4 +18,8 @@ define('SESSION_REDIS_DB',        0);
 		$ cp session.php sessions.bak.php
 	* 覆盖
 		$ mv ~/session.php /functions/sessions.php
+* _sess_destroy 加上 redis del 操作
+
+
+
 * 两小时候后切换
