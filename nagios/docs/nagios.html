@@ -33,7 +33,7 @@
 <h2>2. 安装</h2>
 <pre>
 $ yum install -y nagios nagios-devel nagios-plugins*
-$ yum install -y gd gd-devel httpd php gcc glibc glibc-common openssl
+$ yum install -y gd gd-devel httpd php gcc glibc glibc-common
 </pre>
 
 <h2>3. 配置</h2>
@@ -103,14 +103,26 @@ $ service nagios restart
 <h2>6. 监控远程主机</h2>
 <h3>1）安装NRPE</h3>
 <h3>* 安装</h3>
-<pre>$ yum install -y nrpe</pre>
+<pre>
+$ yum install -y nrpe  openssl
+</pre>
+
 <h3>* 配置</h3>
-<pre>$ vim /etc/nagios/nrpe.cfg
+<pre>
+$ vim /etc/nagios/nrpe.cfg
 ...
-allowed_hosts=127.0.0.1, vm1 #添加运行nagios服务的主机，允许其通过NRPE执行相应监控脚本获取数据</pre>
+allowed_hosts=127.0.0.1,192.168.0.25 #添加运行nagios服务的主机，允许其通过NRPE执行相应监控脚本获取数据，逗号之后不能有空格
+
+command[check_cpu]=/usr/lib64/nagios/plugins/check_cpu
+</pre>
 
 <h3>2）安装nagios-plugins</h3>
-<pre>$ yum install -y nagios-plugins-lcgdm-common</pre>
+<pre>
+$ wget ftp://195.220.108.108/linux/epel/6/x86_64/nagios-plugins-lcgdm-common-0.9.5-1.el6.x86_64.rpm
+$ yum install -y python python-dateutil
+$ yum install -y nagios-plugins-lcgdm-common #rpm -ivh nagios-plugins-lcgdm-common-0.9.5-1.el6.x86_64.rpm
+</pre>
+
 <p>nagios-plugins-lcgdm-common集成了如下插件：<br>
   <br>* check_cpu<br>
   * check_hostcert<br>
@@ -125,7 +137,12 @@ $ service nrpe restart</pre>
 define command {
 	command_name	check_nrpe
 	command_line	$USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
-}
+	}
+define command{
+	command_name    check_cpu
+	command_line    $USER1$/check_cpu -w $ARG1$ -c $ARG2$
+	}
+
 
 $ vim /etc/nagios/conf.d/CPU.cfg
 define service {
