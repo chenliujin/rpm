@@ -1,3 +1,6 @@
+globalcollect
+
+Visa Credit Cart:
 Card No.:		4000000000000101
-Expiration date:	Month:01 Year:30
+Expiration date:	Month:01 Year:30	#大于当前时间
 Security code:		123456
