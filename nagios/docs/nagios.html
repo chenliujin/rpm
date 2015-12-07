@@ -128,9 +128,12 @@ $ yum install -y nagios-plugins-lcgdm-common #rpm -ivh nagios-plugins-lcgdm-comm
   * check_hostcert<br>
   * check_network<br>
   * check_process</p>
+
 <h3>3）启动服务</h3>
-<pre>$ chkconfig nrpe on
-$ service nrpe restart</pre>
+<pre>
+$ chkconfig nrpe on
+$ service nrpe restart
+</pre>
 
 <h3>4）在监控中心添加对这台服务器的监控</h3>
 <pre>$ vim /etc/nagios/objects/commands.cfg
