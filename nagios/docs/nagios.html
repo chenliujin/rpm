@@ -36,6 +36,12 @@ $ yum install -y nagios nagios-devel nagios-plugins*
 $ yum install -y gd gd-devel httpd php gcc glibc glibc-common
 </pre>
 
+<h1>修改密码</h1>
+<pre>
+$ htpasswd -c /etc/nagios/passwd nagiosadmin
+</pre>
+<p>如果修改了用户名，需替换 /etc/nagios/cgi.cfg 中的用户名 nagiosadmin</p>
+
 <h2>3. 配置</h2>
 <h3>* 路径</h3>
 <pre>$ cd /etc/nagios/conf.d</pre>
@@ -147,7 +153,7 @@ define command{
 	}
 
 
-$ vim /etc/nagios/conf.d/CPU.cfg
+$ vim /etc/nagios/conf.d/cpu.cfg
 define service {
     use                     generic-service,service-pnp
     host_name               vm1,vm2
