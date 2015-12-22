@@ -23,4 +23,9 @@
 		<name>hive.zookeeper.quorum</name>
 		<value>vm1</value>
 	</property>
+	<property>
+		<name>hive.exec.parallel.thread.number</name>
+		<value>4</value>
+		<description>How many jobs at most can be executed in parallel</description>
+	</property>	
 </configuration>
