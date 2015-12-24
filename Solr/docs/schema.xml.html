@@ -1,0 +1,41 @@
+<h1>fields</h1>
+
+<ul>
+	<li>
+		<strong>name</strong>
+		<p>字段名称</p>
+	</li>
+	<li>
+		<strong>type</strong>
+		<p>字段类型</p>
+	</li>
+	<li>
+		<strong>indexed=true|false</strong>
+		<p>True if this field should be "indexed". If (and only if) a field is indexed, then it is searchable, sortable, and facetable.</p>
+	</li>
+	<li>
+		<strong>stored=true|false</strong>
+		<p>满足查询条件时，是否返回该字段的内容</p>
+	</li>
+	<li>
+		<strong>required</strong>
+		<p>required 是否是必须字段，如若是，该字段必须有值，否则索引报错</p>
+	</li>
+	<li>
+		<strong>multiValued</strong>
+		<p>是否为多值类型，SOLR允许配置多个数据源字段存储到一个搜索字段中。多个值必须为true，否则有可能抛出异常。</p>
+	</li>
+	<li>
+		<strong>omitNorms</strong>
+		<p></p>
+	</li>
+	<li>
+		<strong>dynamicField</strong>
+		<p>动态字段表示，如果字段的定义没有在配置中找到，就在动态字段类型中进行查找，比如  sid_i ，就可以在动态字段类型中进行匹配，表示该字段是整形</p>
+	</li>
+</ul>
+
+<h1>参考文献</h1>
+<ul>
+	<li>https://wiki.apache.org/solr/SchemaXml</li>
+</ul>
