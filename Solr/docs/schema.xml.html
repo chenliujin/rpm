@@ -26,16 +26,16 @@
 		<p>是否为多值类型，SOLR允许配置多个数据源字段存储到一个搜索字段中。多个值必须为true，否则有可能抛出异常。</p>
 	</li>
 	<li>
-		<strong>omitNorms</strong>
-		<p></p>
+		<strong>omitNorms=true|false</strong>
+		<p>一般文本字段不设置为true。我们可以通过将 omitNorms="true" 来减少 indexed fields 数量增加所带来的影响</p>
 	</li>
 	<li>
 		<strong>dynamicField</strong>
-		<p>动态字段表示，如果字段的定义没有在配置中找到，就在动态字段类型中进行查找，比如  sid_i ，就可以在动态字段类型中进行匹配，表示该字段是整形</p>
+		<p>假设schema中定义了一个叫*_i的动态动态字段，如果要索引一个叫 cost_i 的字段，但是 schema 中不存在 cost_i 的字段，这样 cost_i 将被索引到 *_i 字段中。</p>
 	</li>
 </ul>
 
 <h1>参考文献</h1>
 <ul>
-	<li>https://wiki.apache.org/solr/SchemaXml</li>
+	<li><a href="https://wiki.apache.org/solr/SchemaXml">https://wiki.apache.org/solr/SchemaXml</a></li>
 </ul>
