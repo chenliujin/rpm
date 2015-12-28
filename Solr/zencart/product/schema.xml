@@ -114,132 +114,131 @@
    <field name="_version_" 	type="long" 	indexed="true" stored="true"/>
    <field name="_root_" 	type="string" 	indexed="true" stored="false"/>
 
-   <field name="product_id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
-   <field name="normal_white_black" type="int" indexed="true" stored="false" required="true" /> 
-   <field name="normal_countries" type="string" indexed="true" stored="true" required="false" multiValued="true"/> 
-   <field name="vip_white_black" type="int" indexed="true" stored="false" required="true" /> 
-   <field name="vip_countries" type="string" indexed="true" stored="true" required="false" multiValued="true"/> 
-   <field name="product_total_weight" type="double" indexed="true" stored="true" required="true" /> 
-   <field name="product_total_weight_global" type="double" indexed="true" stored="true" required="false" /> 
-   <field name="product_total_weight_na" type="double" indexed="true" stored="true" required="false" /> 
-   <field name="product_total_weight_sa" type="double" indexed="true" stored="true" required="false" /> 
-   <field name="product_total_weight_euw" type="double" indexed="true" stored="true" required="false" /> 
-   <field name="product_total_weight_eue" type="double" indexed="true" stored="true" required="false" /> 
-   <field name="product_total_weight_other" type="double" indexed="true" stored="true" required="false" /> 
-   <field name="recommend_weight" type="double" indexed="true" stored="true" required="true" /> 
-   <field name="new_weight" type="double" indexed="true" stored="true" required="true" /> 
-   <field name="special_weight" type="double" indexed="true" stored="true" required="true" /> 
-   <field name="featured_weight" type="double" indexed="true" stored="true" required="true" /> 
-   <field name="average_rating" type="double" indexed="true" stored="true" required="true" /> 
-   <field name="product_price" type="double" indexed="true" stored="true" required="true" /> 
-   <field name="special_start" type="tlong" indexed="true" stored="true" required="true" /> 
-   <field name="special_end" type="tlong" indexed="true" stored="true" required="true" /> 
-   <field name="is_recommend" type="int" indexed="true" stored="true" required="true" /> 
-   <field name="is_featured" type="int" indexed="true" stored="true" required="true" /> 
-   <field name="product_status" type="int" indexed="true" stored="true" required="true" /> 
-   <field name="big_customer_only" type="int" indexed="true" stored="true" required="true" /> 
-   <field name="product_quantity" type="int" indexed="true" stored="true" required="true" /> 
-   <field name="add_date" type="tlong" indexed="true" stored="true" required="true" /> 
-   <field name="master_category_id" type="string" indexed="true" stored="true" required="true" /> 
-   <field name="master_category_keywords" type="text_en_splitting" indexed="true" stored="true" required="false" />
-   <field name="pm_id" type="text_en_splitting_little" indexed="true" stored="true" required="true" /> 
-   <field name="manufacturer" type="text_en_splitting_little" indexed="true" stored="true" required="true" /> 
-   <field name="manufacturer_keywords" type="text_en_splitting_little" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_en" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_pt" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_ru" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_es" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_de" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_fr" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_it" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_ar" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="master_category_name_path_nl" type="text_en_splitting" indexed="true" stored="true" required="true" />
-   <field name="product_model" type="text_en_splitting_tight" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="short_title_en" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="short_title_pt" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="short_title_ru" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="short_title_es" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="short_title_de" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="short_title_fr" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="short_title_it" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="short_title_ar" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="short_title_nl" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="category_path_name_en" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="category_path_name_pt" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="category_path_name_ru" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="category_path_name_es" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="category_path_name_de" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="category_path_name_fr" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="category_path_name_it" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="category_path_name_ar" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="category_path_name_nl" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" /> 
-   <field name="product_title_en" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_title_pt" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_title_ru" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_title_es" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_title_de" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_title_fr" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_title_it" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_title_ar" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_title_nl" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="tags" type="string" indexed="true" stored="true" required="false" multiValued="true" /> 
-   <field name="product_keywords_en" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_keywords_pt" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_keywords_ru" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_keywords_es" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_keywords_de" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_keywords_fr" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_keywords_it" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_keywords_ar" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="product_keywords_nl" type="text_en_splitting" indexed="true" stored="true" required="true" omitNorms="false" />
-   <field name="description_en" type="text_en" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="description_pt" type="text_pt" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="description_ru" type="text_ru" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="description_es" type="text_es" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="description_de" type="text_de" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="description_fr" type="text_fr" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="description_it" type="text_it" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="description_ar" type="text_ar" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="description_nl" type="text_nl" indexed="true" stored="false" required="true" omitNorms="false" />
-   <field name="category_path" type="string" indexed="true" stored="true" required="false" multiValued="true" /> 
-   <field name="text" type="text_general" indexed="true" stored="false" />
+   <field name="product_id" 					type="string" 					indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="normal_white_black" 			type="int" 						indexed="true" stored="false" required="true" /> 
+   <field name="normal_countries" 				type="string" 					indexed="true" stored="true" required="false" multiValued="true"/> 
+   <field name="vip_white_black" 				type="int" 						indexed="true" stored="false" required="true" /> 
+   <field name="vip_countries" 					type="string" 					indexed="true" stored="true" required="false" multiValued="true"/> 
+   <field name="product_total_weight" 			type="double" 					indexed="true" stored="true" required="true" /> 
+   <field name="product_total_weight_global" 	type="double" 					indexed="true" stored="true" required="false" /> 
+   <field name="product_total_weight_na" 		type="double" 					indexed="true" stored="true" required="false" /> 
+   <field name="product_total_weight_sa" 		type="double" 					indexed="true" stored="true" required="false" /> 
+   <field name="product_total_weight_euw" 		type="double" 					indexed="true" stored="true" required="false" /> 
+   <field name="product_total_weight_eue" 		type="double" 					indexed="true" stored="true" required="false" /> 
+   <field name="product_total_weight_other" 	type="double" 					indexed="true" stored="true" required="false" /> 
+   <field name="recommend_weight" 				type="double" 					indexed="true" stored="true" required="true" /> 
+   <field name="new_weight" 					type="double" 					indexed="true" stored="true" required="true" /> 
+   <field name="special_weight" 				type="double" 					indexed="true" stored="true" required="true" /> 
+   <field name="featured_weight" 				type="double" 					indexed="true" stored="true" required="true" /> 
+   <field name="average_rating" 				type="double" 					indexed="true" stored="true" required="true" /> 
+   <field name="product_price" 					type="double" 					indexed="true" stored="true" required="true" /> 
+   <field name="special_start" 					type="tlong" 					indexed="true" stored="true" required="true" /> 
+   <field name="special_end" 					type="tlong" 					indexed="true" stored="true" required="true" /> 
+   <field name="is_recommend" 					type="int" 						indexed="true" stored="true" required="true" /> 
+   <field name="is_featured" 					type="int" 						indexed="true" stored="true" required="true" /> 
+   <field name="product_status" 				type="int" 						indexed="true" stored="true" required="true" /> 
+   <field name="big_customer_only" 				type="int" 						indexed="true" stored="true" required="true" /> 
+   <field name="product_quantity" 				type="int" 						indexed="true" stored="true" required="true" /> 
+   <field name="add_date" 						type="tlong" 					indexed="true" stored="true" required="true" /> 
+   <field name="master_category_id" 			type="string" 					indexed="true" stored="true" required="true" /> 
+   <field name="master_category_keywords" 		type="text_en_splitting" 		indexed="true" stored="true" required="false" />
+   <field name="pm_id" 							type="text_en_splitting_little" indexed="true" stored="true" required="true" /> 
+   <field name="manufacturer" 					type="text_en_splitting_little" indexed="true" stored="true" required="true" /> 
+   <field name="manufacturer_keywords" 			type="text_en_splitting_little" indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_en" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_pt" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_ru" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_es" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_de" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_fr" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_it" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_ar" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="master_category_name_path_nl" 	type="text_en_splitting" 		indexed="true" stored="true" required="true" />
+   <field name="product_model" 					type="text_en_splitting_tight" 	indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="short_title_en" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="short_title_pt" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="short_title_ru" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="short_title_es" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="short_title_de" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="short_title_fr" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="short_title_it" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="short_title_ar" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="short_title_nl" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="category_path_name_en" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="category_path_name_pt" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="category_path_name_ru" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="category_path_name_es" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="category_path_name_de" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="category_path_name_fr" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="category_path_name_it" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="category_path_name_ar" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="category_path_name_nl" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" /> 
+   <field name="product_title_en" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_title_pt" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_title_ru" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_title_es" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_title_de" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_title_fr" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_title_it" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_title_ar" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_title_nl" 				type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="tags" 							type="string" 					indexed="true" stored="true" required="false" multiValued="true" /> 
+   <field name="product_keywords_en" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_keywords_pt" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_keywords_ru" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_keywords_es" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_keywords_de" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_keywords_fr" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_keywords_it" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_keywords_ar" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="product_keywords_nl" 			type="text_en_splitting" 		indexed="true" stored="true" required="true" omitNorms="false" />
+   <field name="description_en" 				type="text_en" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="description_pt" 				type="text_pt" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="description_ru" 				type="text_ru" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="description_es" 				type="text_es" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="description_de" 				type="text_de" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="description_fr" 				type="text_fr" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="description_it" 				type="text_it" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="description_ar" 				type="text_ar" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="description_nl" 				type="text_nl" 					indexed="true" stored="false" required="true" omitNorms="false" />
+   <field name="category_path" 					type="string" 					indexed="true" stored="true" required="false" multiValued="true" /> 
+   <field name="text" 							type="text_general" 			indexed="true" stored="false" />
 
-   <dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/>
-   <dynamicField name="*_is" type="int"    indexed="true"  stored="true"  multiValued="true"/>
-   <dynamicField name="*_s"  type="string"  indexed="true"  stored="true" />
-   <dynamicField name="*_ss" type="string"  indexed="true"  stored="true" multiValued="true"/>
-   <dynamicField name="*_l"  type="long"   indexed="true"  stored="true"/>
-   <dynamicField name="*_ls" type="long"   indexed="true"  stored="true"  multiValued="true"/>
-   <dynamicField name="*_t"  type="text_general"    indexed="true"  stored="true"/>
-   <dynamicField name="*_txt" type="text_general"   indexed="true"  stored="true" multiValued="true"/>
-   <dynamicField name="*_en"  type="text_en"    indexed="true"  stored="true" multiValued="true"/>
-   <dynamicField name="*_b"  type="boolean" indexed="true" stored="true"/>
-   <dynamicField name="*_bs" type="boolean" indexed="true" stored="true"  multiValued="true"/>
-   <dynamicField name="*_f"  type="float"  indexed="true"  stored="true"/>
-   <dynamicField name="*_fs" type="float"  indexed="true"  stored="true"  multiValued="true"/>
-   <dynamicField name="*_d"  type="double" indexed="true"  stored="true"/>
-   <dynamicField name="*_ds" type="double" indexed="true"  stored="true"  multiValued="true"/>
+   <dynamicField name="*_i"  			type="int"    			indexed="true"  stored="true"/>
+   <dynamicField name="*_is" 			type="int"    			indexed="true"  stored="true"  	multiValued="true"/>
+   <dynamicField name="*_s"  			type="string" 			indexed="true"  stored="true" />
+   <dynamicField name="*_ss" 			type="string" 			indexed="true"  stored="true" 	multiValued="true"/>
+   <dynamicField name="*_l"  			type="long"   			indexed="true"  stored="true"/>
+   <dynamicField name="*_ls" 			type="long"   			indexed="true"  stored="true"  	multiValued="true"/>
+   <dynamicField name="*_t"  			type="text_general"    	indexed="true"  stored="true"/>
+   <dynamicField name="*_txt" 			type="text_general"   	indexed="true"  stored="true" 	multiValued="true"/>
+   <dynamicField name="*_en"  			type="text_en"    		indexed="true"  stored="true" 	multiValued="true"/>
+   <dynamicField name="*_b"  			type="boolean" 			indexed="true" 	stored="true"/>
+   <dynamicField name="*_bs" 			type="boolean" 			indexed="true" 	stored="true"  	multiValued="true"/>
+   <dynamicField name="*_f"  			type="float"  			indexed="true"  stored="true"/>
+   <dynamicField name="*_fs" 			type="float"  			indexed="true"  stored="true"  	multiValued="true"/>
+   <dynamicField name="*_d"  			type="double" 			indexed="true"  stored="true"/>
+   <dynamicField name="*_ds" 			type="double" 			indexed="true"  stored="true"  	multiValued="true"/>
+   <dynamicField name="*_coordinate"  	type="tdouble" 			indexed="true"  stored="false" />
+   <dynamicField name="*_dt"  			type="date"    			indexed="true"  stored="true"/>
+   <dynamicField name="*_dts" 			type="date"    			indexed="true"  stored="true" 	multiValued="true"/>
+   <dynamicField name="*_p"  			type="location" 		indexed="true" 	stored="true"/>
+   <dynamicField name="*_ti" 			type="tint"    			indexed="true"  stored="true"/>
+   <dynamicField name="*_tl" 			type="tlong"   			indexed="true"  stored="true"/>
+   <dynamicField name="*_tf" 			type="tfloat"  			indexed="true"  stored="true"/>
+   <dynamicField name="*_td" 			type="tdouble" 			indexed="true"  stored="true"/>
+   <dynamicField name="*_tdt" 			type="tdate"  			indexed="true"  stored="true"/>
+   <dynamicField name="*_c"   			type="currency" 		indexed="true"  stored="true"/>
+   <dynamicField name="attr_*" 			type="text_general" 	indexed="true" 	stored="true" 	multiValued="true"/>
+   <dynamicField name="ignored_*" 		type="ignored" 											multiValued="true"/>
+   <dynamicField name="random_*" 		type="random" />
+   <dynamicField name="*_tdt" 			type="tdate"  			indexed="true"  stored="true"/>
+   <dynamicField name="*_pi"  			type="pint"    			indexed="true"  stored="true"/>
+   <dynamicField name="*_c"   			type="currency" 		indexed="true"  stored="true"/>
+   <dynamicField name="ignored_*" 		type="ignored" 											multiValued="true"/>
+   <dynamicField name="attr_*" 			type="text_general" 	indexed="true" 	stored="true" 	multiValued="true"/>
+   <dynamicField name="random_*" 		type="random" />
 
-   <!-- Type used to index the lat and lon components for the "location" FieldType -->
-   <dynamicField name="*_coordinate"  type="tdouble" indexed="true"  stored="false" />
-
-   <dynamicField name="*_dt"  type="date"    indexed="true"  stored="true"/>
-   <dynamicField name="*_dts" type="date"    indexed="true"  stored="true" multiValued="true"/>
-   <dynamicField name="*_p"  type="location" indexed="true" stored="true"/>
-
-   <!-- some trie-coded dynamic fields for faster range queries -->
-   <dynamicField name="*_ti" type="tint"    indexed="true"  stored="true"/>
-   <dynamicField name="*_tl" type="tlong"   indexed="true"  stored="true"/>
-   <dynamicField name="*_tf" type="tfloat"  indexed="true"  stored="true"/>
-   <dynamicField name="*_td" type="tdouble" indexed="true"  stored="true"/>
-   <dynamicField name="*_tdt" type="tdate"  indexed="true"  stored="true"/>
-
-   <dynamicField name="*_c"   type="currency" indexed="true"  stored="true"/>
-
-   <dynamicField name="ignored_*" type="ignored" multiValued="true"/>
-   <dynamicField name="attr_*" type="text_general" indexed="true" stored="true" multiValued="true"/>
-
-   <dynamicField name="random_*" type="random" />
 
    <!-- uncomment the following to ignore any fields that don't already match an existing 
         field name or dynamic field, rather than reporting them as an error. 
@@ -270,42 +269,11 @@
   globally here.  The "q.op" request parameter takes precedence over this.
  <solrQueryParser defaultOperator="OR"/> -->
 
-  <!-- copyField commands copy one field to another at the time a document
-        is added to the index.  It's used either to index the same field differently,
-        or to add multiple fields to the same field for easier/faster searching.  -->
-
-   <copyField source="cat" dest="text"/>
-   <copyField source="name" dest="text"/>
-   <copyField source="manu" dest="text"/>
-   <copyField source="features" dest="text"/>
-   <copyField source="includes" dest="text"/>
-   <copyField source="manu" dest="manu_exact"/>
-
-   <!-- Copy the price into a currency enabled field (default USD) -->
-   <copyField source="price" dest="price_c"/>
-
-   <!-- Text fields from SolrCell to search by default in our catch-all field -->
-   <copyField source="title" dest="text"/>
-   <copyField source="author" dest="text"/>
-   <copyField source="description" dest="text"/>
-   <copyField source="keywords" dest="text"/>
-   <copyField source="content" dest="text"/>
-   <copyField source="content_type" dest="text"/>
-   <copyField source="resourcename" dest="text"/>
-   <copyField source="url" dest="text"/>
-
-   <!-- Create a string version of author for faceting -->
-   <copyField source="author" dest="author_s"/>
-	
    <!-- Above, multiple source fields are copied to the [text] field. 
 	  Another way to map multiple source fields to the same 
 	  destination field is to use the dynamic field syntax. 
 	  copyField also supports a maxChars to copy setting.  -->
 	   
-   <!-- <copyField source="*_t" dest="text" maxChars="3000"/> -->
-
-   <!-- copy name to alphaNameSort, a field designed for sorting by name -->
-   <!-- <copyField source="name" dest="alphaNameSort"/> -->
  
   
     <!-- field type definitions. The "name" attribute is
