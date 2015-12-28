@@ -1,3 +1,5 @@
+<h1>fieldType</h1>
+
 <h1>fields</h1>
 
 <ul>
@@ -29,11 +31,27 @@
 		<strong>omitNorms=true|false</strong>
 		<p>一般文本字段不设置为true。我们可以通过将 omitNorms="true" 来减少 indexed fields 数量增加所带来的影响</p>
 	</li>
-	<li>s
+	<li>
 		<strong>dynamicField</strong>
 		<p>假设schema中定义了一个叫*_i的动态动态字段，如果要索引一个叫 cost_i 的字段，但是 schema 中不存在 cost_i 的字段，这样 cost_i 将被索引到 *_i 字段中。</p>
 	</li>
 </ul>
+
+<h1>copyField</h1>
+<p>复制相关联的字段到目标字段，搜索的时候就可以不用很复杂的查询组合就可以在目标字段中进行搜索</p>
+<ul>
+	<li><strong>source</strong></li>
+	<li><strong>dest</strong></li>
+	<li>
+		<strong>maxChars</strong>
+		<p>限制复制的最大长度</p>
+	</li>
+</ul>
+
+<p>把所有字段放在一起：</p>
+<pre>
+&lt; copyField source = "*" dest = "text_t" /&gt;
+</pre>
 
 <h1>参考文献</h1>
 <ul>
