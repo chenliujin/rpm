@@ -1,5 +1,20 @@
-<h1>fieldType</h1>
+<style>
+	* {
+		font-size: 13px;
+	}
+	#content h1 {
+		font-size: 24px;
+	}	
+	#content h2 {
+		font-size: 20px;
+	}
+	#content h3 {
+		font-size: 16px;
+	}
+</style>
 
+<div id="content">
+	<p>schema.xml的配置直接影响搜索结果的准确性与效率。</p>
 <h1>fields</h1>
 
 <ul>
@@ -53,7 +68,156 @@
 &lt; copyField source = "*" dest = "text_t" /&gt;
 </pre>
 
+<h1>fieldType</h1>
+<ul>
+	<li>
+		<strong>name</strong>
+		<p></p>
+	</li>
+	<li>
+		<strong>class</strong>
+		<p></p>
+	</li>
+	<li>
+		<strong>sortMissingLast=true|false，默认=false</strong>
+		<p>sortMissingLast="true"，没有该field的数据排在有该field的数据之后，而不管请求时的排序规则，在Java中对应的意思就是，该字段为NULL，排在后面。</p>
+	</li>
+	<li>
+		<strong>sortMissingFirst</strong>
+		<p>sortMissingFirst="true"，排序规则与sortMissingLast相反。</p>
+	</li>
+	<li>
+		<strong>positionIncrementGap</strong>
+		<p></p>
+	</li>
+	<li>
+		<strong>tokenizer</strong>
+		<p>分词器</p>
+	</li>
+	<li>
+		<strong>filter</strong>
+		<p>过滤器</p>
+		<ul>
+			<li>
+				<p>solr.StopFilterFactory</p>
+				<p>停用词，不需要匹配的词</p>
+			</li>
+			<li>
+				<p>solr.SynonymFilterFactory</p>
+				<p>同义词</p>
+			</li>
+			<li>
+				<p>solr.LowerCaseFilterFactory</p>
+				<p>忽略大小写</p>
+			</li>
+			<li>
+				<p>solr.PorterStemFilterFactory</p>
+				<p>采用 Porter Stemming Algorithm 算法去掉单词的后缀，例如将复数形式变成单数形式，第三人称动词变成第一人称，现在分词变成一般现在时的动词。</p>
+			</li>
+			<li>
+				<p>solr.WordDelimiterFilterFactory</p>
+				<p>关于分隔符的处理。</p>
+			</li>
+			<li>
+				<p>solr.SnowballPorterFilterFactory</p>
+				<p>关于不同语言的词干处理</p>
+			</li>
+			<li>
+				<p>solr.RemoveDuplicatesTokenFilterFactory</p>
+				<p>避免重复处理。</p>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<strong>charFilter</strong>
+		<p>和其它 CharFilters 一样，在 schema.xml 文件中，使用 charFilter 标记进行指定，且必须出现在 tokenizer 前面。</p>
+		<ul>
+			<li>
+				<strong>solr.HTMLStripCharFilterFactory</strong>
+				<p>该过滤器能够将 HTML 标记从输入流中脱去并将结果传递给其它 CharFilter 或者 Tokenizer。</p>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>定义</h2>
+
+<ul>
+	<li>
+		<strong>string</strong>
+		<p>string 类型的 class 是 solr.StrField，不会被分词。</p>
+	</li>
+	<li>boolean</li>
+	<li>int</li>
+	<li>float</li>
+	<li>long</li>
+	<li>double</li>
+	<li>tint</li>
+	<li>tfloat</li>
+	<li>tlong</li>
+	<li>tdouble</li>
+	<li>date</li>
+	<li>tdate</li>
+	<li>binary</li>
+	<li>random</li>
+	<li>text_ws</li>
+	<li>managed_en</li>
+	<li>text_general</li>
+	<li>text_en</li>
+	<li>text_en_splitting</li>
+	<li><strong>text_en_splitting_little</strong></li>
+	<li>text_en_splitting_tight</li>
+	<li>text_general_rev</li>
+	<li>alphaOnlySort</li>
+	<li>phonetic</li>
+	<li>payloads</li>
+	<li>lowercase</li>
+	<li>descendent_path</li>
+	<li>ancestor_path</li>
+	<li>ignored</li>
+	<li>point</li>
+	<li>location</li>
+	<li>location_rpt</li>
+	<li>bbox</li>
+	<li>_bbox_coord</li>
+	<li>currency</li>
+	<li>text_ar</li>
+	<li>text_bg</li>
+	<li>text_ca</li>
+	<li>text_cjk</li>
+	<li>text_ckb</li>
+	<li>text_cz</li>
+	<li>text_da</li>
+	<li>text_de</li>
+	<li>text_el</li>
+	<li>text_es</li>
+	<li>text_eu</li>
+	<li>text_fa</li>
+	<li>text_fi</li>
+	<li>text_fr</li>
+	<li>text_ga</li>
+	<li>text_gl</li>
+	<li>text_hi</li>
+	<li>text_hu</li>
+	<li>text_hy</li>
+	<li>text_id</li>
+	<li>text_it</li>
+	<li>text_ja</li>
+	<li>text_lv</li>
+	<li>text_nl</li>
+	<li>text_no</li>
+	<li>text_pt</li>
+	<li>text_ro</li>
+	<li>text_ru</li>
+	<li>text_sv</li>
+	<li>text_th</li>
+	<li>text_tr</li>
+</ul>
+
+
 <h1>参考文献</h1>
 <ul>
 	<li><a href="https://wiki.apache.org/solr/SchemaXml">https://wiki.apache.org/solr/SchemaXml</a></li>
 </ul>
+
+</div>
