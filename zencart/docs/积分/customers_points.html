@@ -1,0 +1,60 @@
+<h1>积分类型</h1>
+<ul>
+	<li>
+		<strong>customers_points.type=18</strong>
+		<p>bought point</p>
+	</li>
+	<li>
+		<strong>customers_points.type=19</strong>
+		<p>affiliate point</p>
+	</li>
+	<li>
+		<strong>customers_points.type=20</strong>
+		<p>退款积分（原来的activity point，使用新的type=66）</p>
+	</li>
+	<li>
+		<strong>customers_points.type=55</strong>
+		<p>extended_affiliate</p>
+	</li>
+	<li>
+		<strong>customers_points.type=66</strong>
+		<p>活动积分</p>
+	</li>
+</ul>
+
+<h1>积分过期时间（configuration）</h1>
+<p>发放积分时需要加上过期时间</p>
+<ul>
+	<li>POINTS_FOR_BOUGHT_EXPRIY_DAYS</li>
+	<li>POINTS_FOR_REVIEW_EXPRIY_DAYS</li>
+	<li>POINTS_FOR_AFFILIATE_EXPRIY_DAYS</li>
+</ul>
+
+<h1>可用积分（有效积分）</h1>
+<ul>
+	<li>customers_points.expiry_time = 0：没有时间限制的积分</li>
+	<li>customers_points.expiry_time > 0 && customers_points.expiry_time > now：有时间限制但未过期的积分</li>
+</ul>
+
+
+
+<h1>积分使用</h1>
+
+<h2>积分使用历史</h2>
+
+<h1>UML</h1>
+<ul>
+	<li>getCustomerPointInfoByGroup</li>
+	<li>getCustomerTotalPointsValue</li>
+	<li>genCustomerPointTrack</li>
+	<li>getCustomerUsablePointsValue</li>
+	
+	<li>countCustomerPointsTotal</li>
+	
+	<li>updateCustomerPointStatus</li>
+	
+	<li>添加积分：addCustomerPoint</li>
+	<li>修改积分：updateCustomerPoint</li>
+	<li>删除积分：delCustomerPoint</li>
+</ul>
+
