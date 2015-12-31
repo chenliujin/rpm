@@ -48,11 +48,11 @@
 	</li>
 	<li>
 		<p><strong>customers_points.point_status = 3</strong></p>
-		<p>积分冻结</p>
+		<p>积分使用 | 积分冻结，相应的 point 为负数</p>
 	</li>
 	<li>
 		<p><strong>customers_points.point_status = 4</strong></p>
-		<p>订单发生警告积分冻结</p>
+		<p>订单发生警告积分冻结，相应的积分记为负数？</p>
 	</li>	
 </ul>
 
@@ -135,31 +135,72 @@
 <h2>5.2 积分使用记录（log）</h2>
 
 <h1>6 UML</h1>
+<h2>Customer</h2>
 <ul>
 	<li>
+		<p><strong>Customer::updateCustomerPointStatus</strong></p>
+		<p>ModelCustomer::updateCustomerPointStatus</p>
+		<p>ok</p>
+	</li>
+	<li>
 		<p><strong>Customer::resetCustomerOrderPoint($customers_id, $orders_id)</strong></p>
-	</li>
-	<li>getCustomerPointInfoByGroup</li>
-	<li>getCustomerTotalPointsValue</li>
-	<li>genCustomerPointTrack</li>
-	<li>getCustomerUsablePointsValue</li>
-	
-	<li>countCustomerPointsTotal</li>
-	
-	<li>updateCustomerPointStatus</li>
-	
+	</li>	
+</ul>
+
+
+<h2>ModelCustomer</h2>
+<ul>
 	<li>
-		<p><strong>ModelCustomer::addCustomerPoint</strong></p>
-		<p>获得积分</p>
-	</li>
-	<li>
-		<p><strong>ModelCustomer::updateCustomerPoint</strong></p>
-		<p>修改积分</p>
+		<p><strong><s>countCustomerPointsTotal</s></strong></p>
+		<p>未使用，计算订单产生了的几条 point 相关记录</p>
+		<p>参数</p>
+		<ul>
+			<li>customer_id</li>
+			<li>orders_id</li>
+		</ul>
 	</li>
 	<li>
-		<p><strong>ModelCustomer::delCustomerPoint</strong></p>
+		<p><strong>getCustomerPointInfoByGroup</strong></p>
+		<p>获取用户可用的积分，按类型返回</p>
+		<p>参数</p>
+		<ul>
+			<li>customer_id</li>
+			<li>type=null，默认返回所有 type</li>
+		</ul>
+	</li>
+	<li>
+		<p><strong>getCustomerUsablePointsValue</strong></p>
+		<p>获取用户不可以使用的积分</p>
+		<p>参数</p>
+		<ul>
+			<li>customer_id</li>
+			<li>type=null</li>
+		</ul>
+	</li>
+	<li>
+		<p><strong>getCustomerTotalPointsValue</strong></p>
+		<p>获取用户总的积分</p>
+	</li>
+	<li>
+		<p><strong>genCustomerPointTrack</strong></p>
+		<p>增加一条记录，积分消费时</p>
+	</li>
+	<li>
+		<p><strong>delCustomerPoint</strong></p>
 		<p>删除积分</p>
-	</li>
+	</li>	
+	<li>
+		<p><strong>updateCustomerPoint</strong></p>
+		<p>修改积分</p>
+	</li>	
+	<li>
+		<p><strong>addCustomerPoint</strong></p>
+		<p>获得积分</p>
+	</li>	
+	<li>
+		<p><strong>updateCustomerPointStatus</strong></p>
+		<p>订单取消时，将订单相关的积分设置为无效</p>
+	</li>	
 </ul>
 
 <h1>7 参考文献</h1>
