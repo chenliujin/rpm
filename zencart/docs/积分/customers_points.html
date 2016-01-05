@@ -11,6 +11,10 @@
 		<p><strong>customers_points.type=17</strong></p>
 		<p>购买积分（bought point），60天生效，来源数据 orders</p>
 		<p>大客户订单部分退款。购买积分。使用积分。促销积分。订单退款（购买积分。活动积分</p>
+		<ul>
+			<li><p>购买积分</p></li>
+			<li><p>折扣码积分（I类折扣码：送礼品|送积分）</p></li>
+		</ul>
 	</li>
 	<li>
 		<strong>customers_points.type=19</strong>
@@ -59,7 +63,7 @@
 <h2>1.3 过期时间</h2>
 <ul>
 	<li>customers_points.expiry_time = 0：没有时间限制的积分</li>
-	<li>customers_points.expiry_time > 0 && customers_points.expiry_time > now：有时间限制但未过期的积分</li>
+	<li>customers_points.expiry_time > 0 && customers_points.expiry_time > unix_timestamp() ：有时间限制但未过期的积分</li>
 </ul>
 
 <h1>2 积分状态变化</h1>
@@ -132,7 +136,21 @@
 <h1>5 积分使用</h1>
 
 <h2>5.1 可用积分（有效积分）</h2>
-<h2>5.2 积分使用记录（log）</h2>
+<h2>5.2 积分扣减顺序</h2>
+<ul>
+	<li>a. 先按积分过期时间扣减，先过期的先扣减</li>
+	<li>b. 然后按积分类型扣减
+		<ul>
+			<li>活动积分</li>
+			<li>购买积分</li>
+			<li>extend affiliate 积分</li>
+			<li>affiliate 积分</li>
+			<li>评论积分</li>
+			<li>退款积分</li>
+		</ul>
+	</li>
+</ul>
+<h2>5.3 积分使用记录（log）</h2>
 
 <h1>6 UML</h1>
 <h2>Customer</h2>
@@ -162,15 +180,60 @@
 	<li>
 		<p><strong>getCustomerPointInfoByGroup</strong></p>
 		<p>获取用户可用的积分，按类型返回</p>
+		<p>未过期</p>
+		<ul>
+			<li>point_status = 0 && create_time <= ADDDATE(curdate(), -60) ： 60天后生效积分</li>
+			<li>expiry_time = 0 || ( expiry_time > 0 && expiry_time > unix_timestamp() ) </li>
+		</ul>
 		<p>参数</p>
 		<ul>
 			<li>customer_id</li>
 			<li>type=null，默认返回所有 type</li>
 		</ul>
+		<pre>
+Array
+(
+    [0] => Array
+        (
+            [type] => 17
+            [expiry_time] => 0
+            [sum_points] => 4408.746
+        )
+
+    [1] => Array
+        (
+            [type] => 55
+            [expiry_time] => 0
+            [sum_points] => 52.000
+        )
+
+    [2] => Array
+        (
+            [type] => 19
+            [expiry_time] => 0
+            [sum_points] => 1157.870
+        )
+
+    [3] => Array
+        (
+            [type] => 20
+            [expiry_time] => 0
+            [sum_points] => 1475.000
+        )
+
+)			
+		</pre>
 	</li>
 	<li>
 		<p><strong>getCustomerUsablePointsValue</strong></p>
-		<p>获取用户不可以使用的积分</p>
+		<p>获取用户的可用积分</p>
+		<ul>
+			<li>立即生效的积分：customers_points.point_status = 1</li>
+			<li>60天后生效的积分：customers_points.point_status = 0 and customers_points.create_time &lt; date('Y-m-d', strtotime('-60 days'))</li>
+			<li>排除已使用积分：customers_points.point_status = 3 & customers_points.points &lt; 0</li>
+			<li>排除有争议的积分：customers_points.point_status = 4 and customers_points.points &lt; 0</li>
+			<li>时间限制：customers_points.expiry_time = 0 || ( customers_points.expiry_time &gt; 0 && customers_points.expiry_time &gt; unix_timestamp() )</li>
+		</ul>
 		<p>参数</p>
 		<ul>
 			<li>customer_id</li>
@@ -179,11 +242,28 @@
 	</li>
 	<li>
 		<p><strong>getCustomerTotalPointsValue</strong></p>
-		<p>获取用户总的积分</p>
+		<p>获取用户获得的所有积分</p>
+		<ul>
+			<li>包含60天后未生效的积分：customers_points.point_status = 0</li>
+			<li>立即生效的积分：customers_points.point_status = 1</li>
+			<li>排除无效积分：customers_points.point_status = 2</li>
+			<li>排除已用积分：customers_points.point_status = 3 and customers_points.point &lt; 0</li>
+			<li>排除有争议的积分：customers_points.point_status = 4 and customers_points.point &lt; 0</li>
+			<li><strong>排除过期积分</strong>：customers_points.expirty_time &gt; 0 and customers_points.expirty_time &gt; time()</li>
+		</ul>
 	</li>
 	<li>
 		<p><strong>genCustomerPointTrack</strong></p>
-		<p>增加一条记录，积分消费时</p>
+		<p>添加积分消费记录</p>
+		<p>1. 按积分类型的顺序进行扣减：</p>
+		<ul>
+			<li>活动积分：customers_points.type = 66</li>
+			<li>购物积分：customers_points.type = 17</li>
+			<li>extended affiliate 活动积分: customers_points.type = 55</li>
+			<li>affiliate point：customers_points.type = 19</li>
+			<li>评论积分：customers_points.type = 11</li>
+		</ul>
+		<p>2. 按过期时间进行积分扣减，先过期的先扣减（混合排序呢？）</p>
 	</li>
 	<li>
 		<p><strong>delCustomerPoint</strong></p>
