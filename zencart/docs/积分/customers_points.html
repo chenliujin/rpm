@@ -52,7 +52,11 @@
 	</li>
 	<li>
 		<p><strong>customers_points.point_status = 3</strong></p>
-		<p>积分冻结（下单后获得订单积分，但是未开始支付，支付成功后状态变为0） | </p>
+		<p>积分冻结</p>
+		<ul>
+			<li>下单后派送购买积分，支付成功后状态变为 0，point 值为正数</li>
+			<li>订单使用积分，订单支付成功后状态变为 1，point 值为负数</li>
+		</ul>
 	</li>
 	<li>
 		<p><strong>customers_points.point_status = 4</strong></p>
@@ -136,8 +140,8 @@
 
 
 <h1>5 积分使用</h1>
-<h2>5.1 下单时使用</h2>
-<h2>5.2 积分换购</h2>
+<h2>5.1 下单时使用（积分类型为购买积分）</h2>
+<h2>5.2 积分换购（积分类型为购买积分）</h2>
 <h2>5.3 积分扣减顺序</h2>
 <ul>
 	<li>a. 先按积分过期时间扣减，先过期的先扣减</li>
@@ -200,33 +204,26 @@ Array
 (
     [0] => Array
         (
-            [type] => 17
-            [expiry_time] => 0
-            [sum_points] => 4408.746
+            [type] => 66
+            [expiry_time] => 1483609598
+            [sum_points] => 90.000
         )
 
     [1] => Array
         (
-            [type] => 55
+            [type] => 17
             [expiry_time] => 0
-            [sum_points] => 52.000
+            [sum_points] => 171.090
         )
 
     [2] => Array
         (
-            [type] => 19
+            [type] => 11
             [expiry_time] => 0
-            [sum_points] => 1157.870
+            [sum_points] => 4.330
         )
 
-    [3] => Array
-        (
-            [type] => 20
-            [expiry_time] => 0
-            [sum_points] => 1475.000
-        )
-
-)			
+)		
 		</pre>
 	</li>
 	<li>
