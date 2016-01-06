@@ -52,7 +52,7 @@
 	</li>
 	<li>
 		<p><strong>customers_points.point_status = 3</strong></p>
-		<p>积分使用 | 积分冻结，相应的 point 为负数</p>
+		<p>积分冻结（下单后获得订单积分，但是未开始支付，支付成功后状态变为0） | </p>
 	</li>
 	<li>
 		<p><strong>customers_points.point_status = 4</strong></p>
@@ -95,6 +95,8 @@
 <ul>
 	<li>实际产品支付金额（除去运费），每100美元获得10积分：round($total_usd_price/100*10, 2)</li>
 	<li>西联支付方式积分 x 2</li>
+	<li>积分折扣码：I类折扣码，选择送积分还是送礼品</li>
+	<li>设置过期时间</li>
 </ul>
 
 
@@ -134,9 +136,9 @@
 
 
 <h1>5 积分使用</h1>
-
-<h2>5.1 可用积分（有效积分）</h2>
-<h2>5.2 积分扣减顺序</h2>
+<h2>5.1 下单时使用</h2>
+<h2>5.2 积分换购</h2>
+<h2>5.3 积分扣减顺序</h2>
 <ul>
 	<li>a. 先按积分过期时间扣减，先过期的先扣减</li>
 	<li>b. 然后按积分类型扣减
@@ -150,7 +152,10 @@
 		</ul>
 	</li>
 </ul>
-<h2>5.3 积分使用记录（log）</h2>
+<h2>5.4 积分使用日志（log）</h2>
+<ul>
+	<li>使用有过期时间的积分，记录日志时需设置过期时间，跟相应的积分过期时间一致</li>
+</ul>
 
 <h1>6 UML</h1>
 <h2>Customer</h2>
@@ -242,6 +247,7 @@ Array
 	</li>
 	<li>
 		<p><strong>getCustomerTotalPointsValue</strong></p>
+		<p><em>判定用，可以忽略，使用 getCustomerPointInfoByGroup 即可</em></p>
 		<p>获取用户获得的所有积分</p>
 		<ul>
 			<li>包含60天后未生效的积分：customers_points.point_status = 0</li>
@@ -271,7 +277,7 @@ Array
 	</li>	
 	<li>
 		<p><strong>updateCustomerPoint</strong></p>
-		<p>修改积分</p>
+		<p>修改积分状态</p>
 	</li>	
 	<li>
 		<p><strong>addCustomerPoint</strong></p>
