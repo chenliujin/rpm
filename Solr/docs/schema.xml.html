@@ -1,20 +1,35 @@
 <style>
 	* {
-		font-size: 14px;
+		line-height: 1.5em;
+	}
+	#content {
+		padding: 2em;
+		width: 80%;
+		min-width: 500px;
+		max-width: 794px;
+		border: 1px solid #ccc;
 	}
 	#content h1 {
-		font-size: 24px;
+		font-size: 1.8em;
 	}	
 	#content h2 {
-		font-size: 20px;
+		font-size: 1.2em;
 	}
 	#content h3 {
-		font-size: 16px;
+		font-size: 1.4em;
+	}
+	#content pre {
+		padding: 0.5em 1em;
+		border: 1pt solid #AEBDCC;
+		background-color: #F3F5F7;
+		overflow: hidden;
 	}
 </style>
 
 <div id="content">
 	<p>schema.xml的配置直接影响搜索结果的准确性与效率。</p>
+	
+	
 <h1>fields</h1>
 
 <ul>
@@ -46,11 +61,13 @@
 		<strong>omitNorms=true|false</strong>
 		<p>一般文本字段不设置为true。我们可以通过将 omitNorms="true" 来减少 indexed fields 数量增加所带来的影响</p>
 	</li>
-	<li>
-		<strong>dynamicField</strong>
-		<p>假设schema中定义了一个叫*_i的动态动态字段，如果要索引一个叫 cost_i 的字段，但是 schema 中不存在 cost_i 的字段，这样 cost_i 将被索引到 *_i 字段中。</p>
-	</li>
 </ul>
+
+<h2>Dynamic fields</h2>
+<p>假设 schema 中定义了一个叫 *_i 的动态字段，当要索引一个叫 cost_i 的字段时，如果 schema 中未定义 cost_i 的字段，那么将会按照 *_i 的规则创建 cost_i 字段。</p>
+<p>One of the powerful features of Lucene is that you don't have to pre-define every field when you first create your index. Even though Solr provides strong datatyping for fields, it still preserves that flexibility using "Dynamic Fields". Using <dynamicField> declarations, you can create field rules that Solr will use to understand what datatype should be used whenever it is given a field name that is not explicitly defined, but matches a prefix or suffix used in a dynamicField.</p>
+<p>For example the following dynamic field declaration tells Solr that whenever it sees a field name ending in "_i" which is not an explicitly defined field, then it should dynamically create an integer field with that name...</p>
+<pre>&lt;dynamicField name="*_i" type="integer" indexed="true" stored="true"/&gt;</pre>
 
 <h1>copyField</h1>
 <p>复制相关联的字段到目标字段，搜索的时候就可以不用很复杂的查询组合就可以在目标字段中进行搜索</p>
@@ -103,7 +120,7 @@
 				<p>停用词，不需要匹配的词</p>
 			</li>
 			<li>
-				<p>solr.SynonymFilterFactory</p>
+				<p><strong>solr.SynonymFilterFactory</strong></p>
 				<p>同义词</p>
 			</li>
 			<li>
@@ -111,16 +128,16 @@
 				<p>忽略大小写</p>
 			</li>
 			<li>
-				<p>solr.PorterStemFilterFactory</p>
-				<p>采用 Porter Stemming Algorithm 算法去掉单词的后缀，例如将复数形式变成单数形式，第三人称动词变成第一人称，现在分词变成一般现在时的动词。</p>
-			</li>
-			<li>
 				<p>solr.WordDelimiterFilterFactory</p>
 				<p>关于分隔符的处理。</p>
 			</li>
 			<li>
-				<p>solr.SnowballPorterFilterFactory</p>
-				<p>关于不同语言的词干处理</p>
+				<p><strong>solr.PorterStemFilterFactory</strong></p>
+				<p>采用 Porter Stemming Algorithm 算法去掉单词的后缀，例如将复数形式变成单数形式，第三人称动词变成第一人称，现在分词变成一般现在时的动词。它是原生的英语Porter算法，它比SnowBall的速度快一倍</p>
+			</li>			
+			<li>
+				<p><strong>solr.SnowballPorterFilterFactory</strong></p>
+				<p>这个词干器允许选择多种词干器算法，这些词干器算法是由一个名为Snowball的程序产生的。你可以在language属性中指定你要选择的词干器。指定为English会使用Porter2算法，它比原生的Porter的算法有一点点改进。指定为Lovins会使用Lovins算法，它比起Porter有一些改进，但是运行速度太慢。</p>
 			</li>
 			<li>
 				<p>solr.RemoveDuplicatesTokenFilterFactory</p>
@@ -163,7 +180,23 @@
 	<li>text_ws</li>
 	<li>managed_en</li>
 	<li>text_general</li>
-	<li>text_en</li>
+	<li>
+		<p><strong>text_en</strong></p>
+<pre>&lt;fieldType name=&quot;text_en&quot; class=&quot;solr.TextField&quot; positionIncrementGap=&quot;100&quot;&gt;
+	&lt;analyzer type=&quot;index&quot;&gt;
+		...
+		<s>&lt;filter class=&quot;solr.PorterStemFilterFactory&quot;/&gt;</s>
+		&lt;filter class=&quot;solr.SnowballPorterFilterFactory&quot; language=&quot;English&quot;/&gt;
+		&lt;filter class=&quot;solr.WordDelimiterFilterFactory&quot; generateWordParts=&quot;1&quot; generateNumberParts=&quot;1&quot; catenateWords=&quot;1&quot; catenateNumbers=&quot;1&quot; catenateAll=&quot;0&quot; splitOnCaseChange=&quot;1&quot;/&gt;
+		&lt;filter class=&quot;solr.RemoveDuplicatesTokenFilterFactory&quot;/&gt;
+	&lt;/analyzer&gt; </pre>
+		
+		<ul>
+			<li>用 solr.SnowballPorterFilterFactory 替换掉 solr.PorterStemFilterFactory，前者对后者做了改进</li>
+			<li>增加 solr.WordDelimiterFilterFactory，用分隔符进行分词，分隔符不索引</li>
+			<li>增加 solr.RemoveDuplicatesTokenFilterFactory</li>
+		</ul>
+	</li>
 	<li>text_en_splitting</li>
 	<li><strong>text_en_splitting_little</strong></li>
 	<li>text_en_splitting_tight</li>
@@ -217,7 +250,7 @@
 
 <h1>参考文献</h1>
 <ul>
-	<li><a href="https://wiki.apache.org/solr/SchemaXml">https://wiki.apache.org/solr/SchemaXml</a></li>
+	<li><a href="https://wiki.apache.org/solr/SchemaXml" target="_blank">https://wiki.apache.org/solr/SchemaXml</a></li>
 </ul>
 
 </div>
