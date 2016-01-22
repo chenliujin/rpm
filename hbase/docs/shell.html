@@ -1,7 +1,16 @@
 <pre>
+# hbase shell
+
+
+hbase > list # show tables
+
 hbase > count 'test'	
 
 hbase > sacn 'test'
 
 hbase > scan 'test', {STARTROW => '', STOPROW => ''}
+
+# 删除一张表
+hbase > disable table
+hbase > drop table
 </pre>
