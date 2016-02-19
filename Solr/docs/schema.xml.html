@@ -239,58 +239,6 @@
 	<li>text_tr</li>
 </ul>
 
-<h3>WordDelimiterFilter</h3>
-<p>这个过滤器可以通过多种配置指定如切分和连接合成词，并有多种定义合成词的方法。这个过滤器通常与 WhitespaceTokenizer 配合，而不是 StandardTokenizer。这个过滤器的配置中 1 是设置，0 是重置。WordDelimiterFilter 先通过配置选项中的定义切分词元（示例中右边以逗号分隔是处理后的词）：</p>
-<ul>
-	<li>
-		<p>词间的分隔符切分：Wi-Fi 切为 Wi，Fi</p>
-	</li>
-	<li>
-		<p>忽略任何分隔符：/hello—there, dude 切为 hello, there, dude</p>
-	</li>
-	<li>
-		<p><strong>splitOnCaseChange=1</strong></p>
-		<p>大小写变换时进行切分，WiFi 切为 Wi，Fi</p>
-	</li>
-	<li>
-		<p><strong>splitOnNumerics=1</strong></p>
-		<p>字母和数据间的切分：SD500 切为 SD，500</p>
-	</li>
-	<li>
-		<p><strong>stemEnglishPocessive=1</strong></p>
-		<p>移除所有格’s：David’s切为Divid</p>
-	</li>
-	<li>
-		<p><strong><em>generateWordParts=1</em></strong></p>
-		<p>全是字母的字元将被保留下来进行索引，未设置或设置为 0 时，切分后的字母字元会被过滤掉，不进行索引。</p>
-	</li>
-	<li>
-		<p><strong><em>generateNumberParts=1</em></strong></p>
-		<p>全是数字的字元将被保留下来进行索引，未设置或设置为 0 时，切分后的数字字元会被过滤掉，不进行索引。</p>
-	</li>	
-	<li>
-		<p><strong>catenateWords=1</strong></p>
-		<p>连接多个全字母的词元，比如 wi-fi 连接为 wifi</p>
-	</li>
-	<li>
-		<p><strong>catenateNumbers</strong></p>
-		<p>连接多个全数字的词元，比如 802.11 连接为 80211</p>
-	</li>
-	<li>
-		<p><strong>catenateAll</strong></p>
-		<p>catenateAll会考虑连接所有的词到一起，比如 WiFi-802.11b 连接为 WiFi80211b</p>
-	</li>
-	<li>
-		<p><strong>preserveOriginal=1</strong></p>
-		<p>保留原始的词</p>
-	</li>
-</ul>
-
-<p>内部实现中，过滤器在寻找单词边界前对每个字符赋予一个类型（比如：字母，数字）。这个类型是由Unicode字符类型决定的。如果你想自定义过滤器对字符的类型归类，你可以在type选项中提供一个或多个映射文件。一个实现的例子是在Twitter中，你想将”#”和”@”视为类型ALPHA。要了解这个难解的特性，可以看SOLR-2059。</p>
-<p>如果有一些词，你不想用过滤器处理，你可以在procected属性中指定包括这些词的配置文件。其它一些过滤器也有相似的特性。</p>
-<p>在Solr的text_en_splitting域类型中使用WordDelimiterFilter是一个合理的方式：在索引和查询的时候都产生词和数字，但只在索引时进行连接操作，因为在查询时进行连接是多余的。</p>
-
-
 <h1>参考文献</h1>
 <ul>
 	<li><a href="https://wiki.apache.org/solr/SchemaXml" target="_blank">https://wiki.apache.org/solr/SchemaXml</a></li>
